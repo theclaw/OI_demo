@@ -1,0 +1,110 @@
+.dashboard-row1 .dashboard-panel .panel-element-row:first-child {
+    background: transparent 50% 50% no-repeat url('/static/app/oidemo/background-small3.png');
+    min-height: 450px;
+    min-width: 800px;
+    xwidth: 800px;
+   xmargin: 0 auto;
+    position: relative;
+}
+.dashboard-row1 .dashboard-panel .panel-element-row {
+    width: 800px;
+    margin: 0 auto;
+}
+.dashboard-row1 .panel-head,
+.dashboard-row1 .panel-footer {
+    display: none;
+}
+
+.dashboard-row1 .after-label{
+    display: inline-block;
+}
+.dashboard-row1 .single-value .under-label {
+    text-transform: none;
+    color: #fff;
+    font-size: 11px;
+}
+.dashboard-row1 #authentications {
+   position: absolute;
+   top: 97px;
+   left: 635px;
+}
+.dashboard-row1 #web_transactions {
+   position: absolute;
+   top: 95px;
+   left: 350px;
+}
+
+.dashboard-row1 #web_transactions_sparkline {
+    position: relative;
+    width: 200px!important;
+    top: -310px;
+    left: 275px;
+}
+.dashboard-row1 #web_transactions_sparkline svg>rect {
+    fill: rgba(255,255,255,0);
+}
+
+.dashboard-row1 #crm_transactions {
+   position: absolute;
+   top: 95px;
+   left: 95px;
+}
+
+.dashboard-row1 #crm_transactions_sparkline {
+    position: relative;
+    width: 200px!important;
+    top: -385px;
+    left: 25px;
+}
+.dashboard-row1 #crm_transactions_sparkline svg>rect {
+    fill: rgba(255,255,255,0);
+}
+
+.dashboard-row1 #total_transactions {
+   position: absolute;
+   top: 255px;
+   left: 25px;
+}
+
+.dashboard-row1 #total_transactions_sparkline {
+    position: relative;
+    width: 200px!important;
+    top: -345px;
+    left: 275px;
+}
+.dashboard-row1 #total_transactions_sparkline svg>rect {
+    fill: rgba(255,255,255,0);
+}
+
+.dashboard-row1 #downloads {
+   position: absolute;
+   top: 212px;
+   left: 635px;
+}
+
+.dashboard-row1 #music_download_sparkline {
+    position: relative;
+    width: 200px!important;
+    top: -420px;
+    left: 570px;
+}
+.dashboard-row1 #music_download_sparkline svg>rect {
+    fill: rgba(255,255,255,0);
+}
+
+.dashboard-row1 #authentications_sparkline {
+    position: relative;
+    width: 200px!important;
+    top: -610px;
+    left: 570px;
+}
+.dashboard-row1 #authentications_sparkline svg>rect {
+    fill: rgba(255,255,255,0);
+}
+.dashboard-row1 #mplatforms {
+    position: absolute;
+    width: 150px!important;
+    top: 10px;
+
+}
+

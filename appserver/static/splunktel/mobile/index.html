@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		
+		<title>Realtime Sales | Splunk Developer Platform Demo</title>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+		<link rel="stylesheet" href="themes/splunk.min.css" />
+		<link rel="stylesheet" href="../css/jquery.dataTables.css" />
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile.structure-1.2.0.min.css" />
+	</head>
+
+	<body>
+		<div data-role="page" id="one" data-theme="a">
+			<div data-role="header" data-position="inline">
+				<img src="themes/images/logo.png" alt="Splunktel Logo" />
+			</div>		
+
+			<div class="breadcrumbs">
+				<a href="#" class="active"><strong>Reports</strong></a> &gt; <a href="#">Realtime Sales</a>
+			</div>	
+			
+			<div data-role="content" data-theme="a">
+			
+
+				<div id="top-5-phones" class="splunk-module">
+					<h1>TOP 5 PHONES</h1>
+
+					<div class="chart clearfix"><span class="loading"></span></div>
+				</div>
+
+				
+				<div id="rate-plan-sales" class="splunk-module">
+					<h1>RATE PLAN SALES</h1>
+
+					<div class="chart table clearfix"><span class="loading"></span></div>
+				</div>
+
+
+				<div id="phone-sales" class="splunk-module">
+					<h1>PHONE SALES</h1>
+
+					<div class="chart table clearfix"><span class="loading"></span></div>
+				</div>
+				
+
+				<!--<a href="#two" data-transition="slide" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a">
+					<span class="ui-btn-inner ui-btn-corner-all">
+						<span class="ui-btn-text">Realtime Sales</span>
+					</span>
+				</a>-->
+				
+				
+			</div>
+		</div>
+		
+		
+		<!--<div data-role="page" id="two" data-theme="a">
+		
+			<div data-role="header" data-position="inline">
+				<img src="themes/images/logo.png" alt="" />
+			</div>		
+		
+			<div class="ui-breadcrumbs-splunk">
+				<a href="#one" data-direction="reverse" data-transition="slide">Reports</a> &gt; <a href="#two" class="active">Realtime Sales</a>
+			</div>			
+		
+			<div data-role="content" data-theme="a">
+			
+				<div class="ui-box-splunk">
+					<div class="ui-box-splunk-header">
+						yet another box
+					</div>
+					<div class="ui-box-splunk-content">
+						<p>This is another box content...</p>
+					</div>
+				</div>
+			
+				<a href="#one" data-direction="reverse" data-transition="slide" data-role="button" data-theme="a" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" class="ui-btn ui-shadow ui-btn-corner-all ui-btn-up-a">
+					<span class="ui-btn-inner ui-btn-corner-all">
+						<span class="ui-btn-text">Back</span>
+					</span>
+				</a>
+			
+			</div>
+				
+		</div>-->
+		
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="../js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="../js/plugins.mobile.js"></script>
+        <script src="../js/vendor/splunk-v1.1/splunk.js"></script>
+        <script src="../SplunkDemo.js"></script>
+        <script src="mobile.js"></script>
+	</body>
+</html>

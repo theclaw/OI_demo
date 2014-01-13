@@ -1,0 +1,47 @@
+[views/splunk_arch]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 6.0
+modtime = 1383150529.438962000
+
+[nav/default]
+version = 6.0.1
+modtime = 1389114175.895334000
+
+[views/start]
+version = 6.0
+modtime = 1382993190.270142000
+
+[views/webstore_operations]
+version = 6.0.1
+modtime = 1389110790.850698000
+
+[datamodels/OIDemo]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = nobody
+version = 6.0
+modtime = 1382996938.351914000
+
+[models/OIDemo]
+version = 6.0
+modtime = 1382996938.353860000
+
+[views/exec_kpi]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 6.0
+modtime = 1382998081.886081000
+
+[views/help_script]
+version = 6.0
+modtime = 1383149062.594855000
+
+[views/help_pass]
+access = read : [ * ], write : [ admin, power ]
+export = none
+owner = admin
+version = 6.0
+modtime = 1383151081.427562000

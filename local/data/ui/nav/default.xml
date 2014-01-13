@@ -1,0 +1,49 @@
+<nav search_view="search" color="#5379af">
+   <collection label="Architecture">
+     <view name="start" default="true" />
+     <view name="splunk_arch" />
+     <view name="machine_data" />
+   </collection>
+   <view name="search" />
+   <view name="data_models" />
+   <collection label="Dashboards">
+      <a href="sales_realtime">Real Time Sales Overview</a>
+      <a href="content_dashboard">Content Marketing Overview</a>     
+      <collection label="Sales Views">
+         <view name="sales_by_rate_plan" />
+         <view name="sales_by_hour" />
+         <view name="all_orders" />
+         <view name="map" />
+      </collection>
+      <collection label="Music Service Views">
+         <view name="music_service_activation" />
+         <view name="download_dashboard" />
+         <view name="music_operations" />
+      </collection>
+      <collection label="Webstore Operations Views">
+         <view name="webstore_operations" />
+         <view name="env_state" />
+         <view name="db_state" />
+         <view name="exec_kpi" />
+      </collection>
+      <a href="dashboards">All Dashboards</a>
+   </collection>
+   <collection label="Customer Care">
+      <view name="customer_care" />
+      <view name="splunktel" />
+   </collection>
+   <collection label="Searches &amp; Reports">
+      <saved source="all" match="OI - Music" />
+      <saved source="all" match="OI - Business" />
+      <collection label="Hot Searches">
+         <saved source="all" match="Shopping Cart" />
+      </collection>
+      <a href="reports">All Searches &amp; Reports</a>   
+   </collection>
+   <view name="alerts" />
+   <collection label="Help">
+      <view name="help_pass" />
+      <view name="help_script" />
+      <view name="help_video" />
+   </collection>
+</nav>

@@ -1,0 +1,17 @@
+<dashboard>
+    <label>Sales by City/State</label>
+	<description/>
+	<row>
+		<table id="element1">
+			<title>Sales by City/State</title>
+			<searchString>search index=oidemo sourcetype=business_event (orderType=NewActivation OR orderType=AddLOS)
+| stats count by marketCity marketState
+| sort - count</searchString>
+			<earliestTime>-1h</earliestTime>
+			<option name="wrap">true</option>
+			<option name="displayRowNumbers">true</option>
+			<option name="dataOverlayMode">none</option>
+			<option name="drilldown">row</option>
+		</table>
+	</row>
+</dashboard>

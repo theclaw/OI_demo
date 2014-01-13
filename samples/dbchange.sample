@@ -1,0 +1,5 @@
+index,host,source,sourcetype,_raw
+oidemo,localhost,mysql_config_api,mysql_config,"2010-09-28 00:15:30 Machine=YYYYYYYYYY Cluster=mysql.splunktel.com EventType=ConfigChange User=XXXXXXXXXX Object=CoreConfig Property=MaxMemory PrevPropValue=1024 NewPropValue=2048 TicketId=10020"
+oidemo,localhost,mysql_config_api,mysql_config,"2010-09-28 01:23:44 Machine=YYYYYYYYYY Cluster=mysql.splunktel.com EventType=ConfigChange User=XXXXXXXXXX Object=CoreConfig Property=MaxLogSizeMB PrevPropValue=512 NewPropValue=256 TicketId=10021"
+oidemo,localhost,mysql_config_api,mysql_config,"2010-09-28 02:55:44 Machine=YYYYYYYYYY Cluster=mysql.splunktel.com EventType=ConfigChange User=XXXXXXXXXX Object=CoreConfig Property=ConcurrentConnectionQueueSize PrevPropValue=40 NewPropValue=4 TicketId="
+

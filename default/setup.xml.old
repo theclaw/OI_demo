@@ -1,0 +1,12 @@
+<setup>
+  <block title="Welcome">
+    <text>Clicking submit will install SA-Eventgen.  This is required for the Operational Intelligence Demo. You will need to setup Eventgen afterwards for it to start</text>
+  </block>
+  
+  <block title="Install SA-Eventgen" endpoint="oidemo/oidemoconfig" entity="setupentity">
+    <input field="installeventgen">
+      <label>Install</label>
+      <type>bool</type>
+    </input>
+  </block>
+</setup>

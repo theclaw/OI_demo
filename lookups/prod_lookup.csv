@@ -1,0 +1,79 @@
+product_id,product_name,price,tdf_price,call_flwrs_price
+CC-P3-OTTERBOX-OBDIPHONE4,OtterBox Defender Case for iPhone 4/4S,40,47,49
+CC-P3-OTTERBOX-OBDIPHONE5,OtterBox Defender Case for iPhone 5,40,47,49
+CC-P3-BELKIN-SILBLKIPH4,Belkin Gloss Silicon Case for iPhone 4/4S,20,27,29
+CC-P3-BELKIN-SILBLKIPH5,Belkin Gloss Silicon Case for iPhone 5,20,27,29
+CC-P3-APPLE-BUMPIPHONE4,Apple iPhone 4/4S Bumper,10,15,20
+CC-P4-OTTERBOX-OBDROID4,OtterBox Defender for Droid RAZR,30,37,39
+CC-T7-ZAGG-FOLIOMINI,Zaggfolio Keyboard Case for IPad Mini,18,22,25
+CC-T7-BELKIN-SLEEVE,Belkin Embroidered 7in Tablet Sleeve,28,32,35
+CC-T10-RIM-BBERRYPLAY,BlackBerry Playbook Case,50,56,59
+CC-T11-ZAGG-FOLIO,Zaggfolio Keyboard Case for IPad 2/3,28,32,35
+CC-T11-BELKIN-SLEEVE,Belkin Embroidered 11in Tablet Sleeve,42,45,49
+DP-IPHONE4,Display Protection 3pack - iPhone 4/4S,8,9,12
+DP-IPHONE5,Display Protection 3pack - iPhone 5,8,9,12
+DP-NOKLUMIA,Display Protection 3pack - Nokia Lumia,8,9,12
+DP-HTCONE,Display Protection 3pack - HTC One,8,9,12
+DP-HTCREZOUND,Display Protection 3pack - HTC Rezound,8,9,12
+DP-HTCDROIDINC,Display Protection 3pack - HTC Droid Incredible,8,9,12
+DP-MOTDROID2,Display Protection 3pack - Motorola Droid 2,8,9,12
+DP-MOTDROID3,Display Protection 3pack - Motorola Droid 3,8,9,12
+DP-MOTDROIDRAZ,Display Protection 3pack - Motorola Droid RAZR,8,9,12
+DP-SAMSGALAX,Display Protection 3pack - Samsung Galaxy,8,9,12
+DP-SAMSGALAX3,Display Protection 3pack - Samsung Galaxy 3,8,9,12
+DP-SAMSGALAX4,Display Protection 3pack - Samsung Galaxy 4,8,9,12
+DP-SAMSGALAXTAB,Display Protection 3pack - Samsung Galaxy Tab,9,10,18
+BT-HS-BEATSWIRELESS,Beats by Dr Dre Wireless Headphones,210,250,280
+BT-HS-PLANT-M25,PLantronics M25 Bluetooth Headset,50,60,68
+BT-HS-PLANT-VOYLEGEND,Plantronics Voyager Legend Bluetooth Headset,70,78,85
+BT-HS-JAWB-ICONTHD,Jawbone Icon T HD Bluetooth Headset,85,99,108
+BT-HS-JABRA-WAVE,Jabra Wave Bluetooth Headset,40,55,60
+BT-HS-SAMS-HM1300,Samsung HM1300 Bluetooth Headset,20,31,42
+BT-SP-JAWB-JAMBOX,Jawbone Jambox Bluetooth Loudspeaker,50,67,74
+BT-SP-JAWB-JAMBOXBIG,Jawbone Jambox Big Bluetooth Loudspeaker,60,74,85
+BT-SP-BOSESNDLNK2,Bose SoundLink 2 Bluetooth Loudspeaker,55,70,79
+BT-KB-LOGITECH,Logitech Bluetooth Tablet Keyboard,60,71,80
+BT-MO-MOT-BTMOUSE,Motorola Bluetooth Mouse,8,9,14
+BT-CK-JABRA-FREEWAY,Jabra Freeway Bluetooth Car Kit,30,42,52
+BT-CK-D-ROADSTER2,Motorola Droid Roadster 2 Bluetooth Car Kit,35,47,57
+BA-MOPHIE-JUICEPACKPLUS,Mophie Juice Pack Plus,40,49,54
+BA-MOPHIE-JUICEPACKAIR,Mophie Juice Pack Air,35,45,49
+BA-NOK-LUMIA,Nokia Lumia Standard Battery,38,44,51
+BA-HTC-REZOUND,HTC Rezound Replacement Battery,39,46,52
+BA-SAMS-STELLAR,Samsung Stellar 1300Ma Battery,25,31,35
+MC-SANDISK-MICROSD4GB,Sandisk MicroSD 4 GB Card,4,8,15
+MC-SANDISK-MICROSD8GB,Sandisk MicroSD 8 GB Card,8,16,20
+MC-SANDISK-MICROSD16GB,Sandisk MicroSD 16 GB Card,16,32,40
+MC-SANDISK-MICROSD32GB,Sandisk MicroSD 32 GB Card,32,50,60
+MC-SANDISK-MICROSD64GB,Sandisk MicroSD 64 GB Card,64,100,110
+MC-SANDISK-READER,Sandisk MicroSD USB Card Reader,12,20,25
+MC-INTUIT-CCREADER,Intuit Portable Credit Card Reader,14,16,20
+MC-SQUARE-CCREADER,Square Portable Credit Card Reader,5,6,8
+CH-APPLE-5W,Apple 5-watt Charger,10,14,16
+CH-APPLE-10W,Apple 10-watt Charger,13,17,19
+CH-APPLE-12W,Apple 12-watt Charger,15,19,21
+CH-APPLE-5WL,Apple 5-watt Lightning Charger,20,24,26
+CH-APPLE-10WL,Apple 10-watt Lightning Charger,26,30,32
+CH-APPLE-12WL,Apple 12-watt Lightning Charger,30,34,36
+CH-MOT-MICROUSB,Motorola 7-watt MicroUSB Charger,10,14,16
+CH-RIM-MICROUSB,RIM Blackberry 7-watt MicroUSB Charger,10,15,17
+CH-SAMS-MICROUSB,Samsung 3-watt MicroUSB Charger,5,7,9
+CH-NOK-INDUCTIVE,Nokia Inductive Charging Kit,40,43,51
+HS-APPLE-EARBUDS,Apple Earbuds Headset,20,26,30
+HS-KLIPSCH-IMAGEONE,Klipsch Image One Wired Headset,50,62,69
+HS-SENNH-CX870,Sennheiser CX870 Wired Headset,45,57,60
+HS-BOSE-MIE2I,Bose MIE2i Wired Headset,38,47,53
+HS-SKULLC-MERGER,Skullcandy Merger Headset,25,40,45
+HS-MONST-NERGY,Monster N-Ergy Headset,25,40,45
+HS-PLANT-MX200,Plantronics MX200 Headset,25,35,40
+MO-IBOLT-MOUNT,iBolt Universal Car Phone Handsfree Mount Kit,35,41,48
+MO-MOT-RAZRM,Motorola RAZR MAXX Car Mounting Kit,37,42,49
+MO-IGRIP-WINDOW,iGrip Window-Mount Phone Dock,36,43,48
+MO-IGRIP-VENT,iGrip Vent-Mount Phone Dock,35,42,47
+AC-ASSTCHARMS,Assorted Phone Charms Pack,5,10,12
+AC-BLING,Bling Rhinestone Pack,5,10,12
+AC-SIERRA-HOTSPOT3G,Sierra Networks 3G Hotspot,75,85,99
+AC-SIERRA-HOTSPOT4G,Sierra Networks 4G Hotspot,85,100,119
+AC-MOTO-HOTSPOT3G,Motorola Hotspot - 3G,75,84,98
+AC-MOTO-HOTSPOT4G,Motorola Hotspot - 4G,85,99,115
+AC-SAMS-NETEXTEND,Splunktel Network Extender by Samsung,50,75,80

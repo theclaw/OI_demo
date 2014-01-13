@@ -1,0 +1,49 @@
+<form>
+  <label>Customer Care</label>
+
+  <fieldset>
+      
+      <!-- define a common form search input that will be used by all panels
+          below that implement a searchTemplate node -->
+      <input type="text" token="sourcetypeToken">
+       <label>Mobile Device Number</label>
+         <!-- <label>Mobile Device Number</label> -->
+          <default>5556374832</default>
+      </input>
+
+      <input type="time">
+        <default>Last 60 minutes</default>
+      </input>
+
+  </fieldset>
+    
+  <row>
+      <chart>
+          <title>Customer Authentications Over Time</title>
+          <searchTemplate>index=oidemo sourcetype=radius start mdn="$sourcetypeToken$" | timechart count</searchTemplate>
+          <option name="charting.chart">column</option>
+          <option name="charting.primaryAxisTitle.text">Time</option>
+          <option name="charting.secondaryAxisTitle.text">Authentications</option>
+          <option name="charting.legend.placement">none</option>
+			<option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+			<option name="charting.legend.masterLegend">null</option> 
+      </chart>
+      <chart>
+          <title>Customer Download History</title>
+          <searchTemplate>index=oidemo (sourcetype=radius OR sourcetype=access_custom) | transaction maxspan=1m clientip mdn | search mdn="$sourcetypeToken$" bc_uri="/sync/addtolibrary/*" | top track_name</searchTemplate>
+          <option name="charting.chart">pie</option>
+          <option name="charting.legend.placement">none</option>
+			<option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+			<option name="charting.legend.masterLegend">null</option> 
+      </chart>
+  </row>
+
+  <row>
+      <table>
+          <title>Error History</title>
+          <searchTemplate>index=oidemo (sourcetype=radius OR sourcetype=access_custom) | transaction maxspan=1m clientip mdn | search mdn="$sourcetypeToken$" bc_uri="/sync/addtolibrary/*" status=503 | table _time, mdn, status, artist_name, track_name, device_ip, useragent, bc_uri, track_id</searchTemplate>
+          <option name="count">20</option>
+      </table>
+  </row>
+  
+</form>

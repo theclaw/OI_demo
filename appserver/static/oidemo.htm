@@ -1,0 +1,3218 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+xmlns:mv="http://macVmlSchemaUri" xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta name=Title content="Operational Intelligence Demo (Script) - Sept 2013">
+<meta name=Keywords content="">
+<meta http-equiv=Content-Type content="text/html; charset=macintosh">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 14">
+<meta name=Originator content="Microsoft Word 14">
+<link rel=File-List href="oidemo_files/filelist.xml">
+<title>Operational Intelligence Demo (Script) - Sept 2013</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:LastAuthor>Clint Sharp</o:LastAuthor>
+  <o:Revision>2</o:Revision>
+  <o:TotalTime>50</o:TotalTime>
+  <o:Created>2013-09-30T16:11:00Z</o:Created>
+  <o:LastSaved>2013-09-30T16:11:00Z</o:LastSaved>
+  <o:Pages>2</o:Pages>
+  <o:Words>3318</o:Words>
+  <o:Characters>18915</o:Characters>
+  <o:Company>Splunk</o:Company>
+  <o:Lines>157</o:Lines>
+  <o:Paragraphs>44</o:Paragraphs>
+  <o:CharactersWithSpaces>22189</o:CharactersWithSpaces>
+  <o:Version>14.0</o:Version>
+ </o:DocumentProperties>
+ <o:OfficeDocumentSettings>
+  <o:AllowPNG/>
+ </o:OfficeDocumentSettings>
+</xml><![endif]-->
+<link rel=themeData href="oidemo_files/themedata.xml">
+<!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:TrackMoves/>
+  <w:TrackFormatting/>
+  <w:PunctuationKerning/>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:DoNotPromoteQF/>
+  <w:LidThemeOther>EN-US</w:LidThemeOther>
+  <w:LidThemeAsian>JA</w:LidThemeAsian>
+  <w:LidThemeComplexScript>X-NONE</w:LidThemeComplexScript>
+  <w:Compatibility>
+   <w:BreakWrappedTables/>
+   <w:SnapToGridInCell/>
+   <w:WrapTextWithPunct/>
+   <w:UseAsianBreakRules/>
+   <w:DontGrowAutofit/>
+   <w:SplitPgBreakAndParaMark/>
+   <w:EnableOpenTypeKerning/>
+   <w:DontFlipMirrorIndents/>
+   <w:OverrideTableStyleHps/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <m:mathPr>
+   <m:mathFont m:val="Cambria Math"/>
+   <m:brkBin m:val="before"/>
+   <m:brkBinSub m:val="&#45;-"/>
+   <m:smallFrac m:val="off"/>
+   <m:dispDef/>
+   <m:lMargin m:val="0"/>
+   <m:rMargin m:val="0"/>
+   <m:defJc m:val="centerGroup"/>
+   <m:wrapIndent m:val="1440"/>
+   <m:intLim m:val="subSup"/>
+   <m:naryLim m:val="undOvr"/>
+  </m:mathPr></w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" DefUnhideWhenUsed="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="276">
+  <w:LsdException Locked="false" Priority="0" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:LsdException Locked="false" Priority="9" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 2"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 3"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 4"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 5"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 6"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 7"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 8"/>
+  <w:LsdException Locked="false" Priority="9" QFormat="true" Name="heading 9"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 1"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 2"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 3"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 4"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 5"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 6"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 7"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 8"/>
+  <w:LsdException Locked="false" Priority="39" Name="toc 9"/>
+  <w:LsdException Locked="false" Priority="35" QFormat="true" Name="caption"/>
+  <w:LsdException Locked="false" Priority="10" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:LsdException Locked="false" Priority="1" Name="Default Paragraph Font"/>
+  <w:LsdException Locked="false" Priority="11" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:LsdException Locked="false" Priority="22" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:LsdException Locked="false" Priority="20" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:LsdException Locked="false" Priority="59" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Placeholder Text"/>
+  <w:LsdException Locked="false" Priority="1" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:LsdException Locked="false" UnhideWhenUsed="false" Name="Revision"/>
+  <w:LsdException Locked="false" Priority="34" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:LsdException Locked="false" Priority="29" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:LsdException Locked="false" Priority="30" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:LsdException Locked="false" Priority="60" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="61" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:LsdException Locked="false" Priority="62" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="63" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="64" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="65" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="66" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="67" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:LsdException Locked="false" Priority="68" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:LsdException Locked="false" Priority="69" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:LsdException Locked="false" Priority="70" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:LsdException Locked="false" Priority="71" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:LsdException Locked="false" Priority="72" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:LsdException Locked="false" Priority="73" SemiHidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:LsdException Locked="false" Priority="19" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:LsdException Locked="false" Priority="21" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:LsdException Locked="false" Priority="31" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:LsdException Locked="false" Priority="32" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:LsdException Locked="false" Priority="33" SemiHidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:LsdException Locked="false" Priority="37" Name="Bibliography"/>
+  <w:LsdException Locked="false" Priority="39" QFormat="true" Name="TOC Heading"/>
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+@font-face
+	{font-family:"Courier New";
+	panose-1:2 7 3 9 2 2 5 2 4 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:"\FF2D\FF33 \660E\671D";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	panose-1:0 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:128;
+	mso-generic-font-family:modern;
+	mso-font-format:other;
+	mso-font-pitch:fixed;
+	mso-font-signature:1 134676480 16 0 131072 0;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:Cambria;
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 0 0 0 1 0;}
+@font-face
+	{font-family:"Lucida Grande";
+	panose-1:2 11 6 0 4 5 2 2 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:-520090897 1342218751 0 0 447 0;}
+ /* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-style-next:Normal;
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#345A8A;
+	mso-themecolor:accent1;
+	mso-themeshade:181;
+	mso-font-kerning:0pt;
+	font-weight:bold;}
+h2
+	{mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	mso-style-next:Normal;
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:13.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+h3
+	{mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 3 Char";
+	mso-style-next:Normal;
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:12.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+h4
+	{mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 4 Char";
+	mso-style-next:Normal;
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:12.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;
+	font-style:italic;}
+h5
+	{mso-style-priority:9;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 5 Char";
+	mso-style-next:Normal;
+	margin-top:10.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan lines-together;
+	page-break-after:avoid;
+	mso-outline-level:5;
+	font-size:12.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#243F60;
+	mso-themecolor:accent1;
+	mso-themeshade:127;
+	font-weight:normal;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Title Char";
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-bottom-alt:solid #4F81BD 1.0pt;
+	mso-border-bottom-themecolor:accent1;
+	padding:0in;
+	mso-padding-alt:0in 0in 4.0pt 0in;
+	font-size:26.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#17365D;
+	mso-themecolor:text2;
+	mso-themeshade:191;
+	letter-spacing:.25pt;
+	mso-font-kerning:14.0pt;}
+p.MsoTitleCxSpFirst, li.MsoTitleCxSpFirst, div.MsoTitleCxSpFirst
+	{mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Title Char";
+	mso-style-next:Normal;
+	mso-style-type:export-only;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-bottom-alt:solid #4F81BD 1.0pt;
+	mso-border-bottom-themecolor:accent1;
+	padding:0in;
+	mso-padding-alt:0in 0in 4.0pt 0in;
+	font-size:26.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#17365D;
+	mso-themecolor:text2;
+	mso-themeshade:191;
+	letter-spacing:.25pt;
+	mso-font-kerning:14.0pt;}
+p.MsoTitleCxSpMiddle, li.MsoTitleCxSpMiddle, div.MsoTitleCxSpMiddle
+	{mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Title Char";
+	mso-style-next:Normal;
+	mso-style-type:export-only;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-bottom-alt:solid #4F81BD 1.0pt;
+	mso-border-bottom-themecolor:accent1;
+	padding:0in;
+	mso-padding-alt:0in 0in 4.0pt 0in;
+	font-size:26.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#17365D;
+	mso-themecolor:text2;
+	mso-themeshade:191;
+	letter-spacing:.25pt;
+	mso-font-kerning:14.0pt;}
+p.MsoTitleCxSpLast, li.MsoTitleCxSpLast, div.MsoTitleCxSpLast
+	{mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Title Char";
+	mso-style-next:Normal;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:15.0pt;
+	margin-left:0in;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	border:none;
+	mso-border-bottom-alt:solid #4F81BD 1.0pt;
+	mso-border-bottom-themecolor:accent1;
+	padding:0in;
+	mso-padding-alt:0in 0in 4.0pt 0in;
+	font-size:26.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#17365D;
+	mso-themecolor:text2;
+	mso-themeshade:191;
+	letter-spacing:.25pt;
+	mso-font-kerning:14.0pt;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:blue;
+	mso-themecolor:hyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	color:purple;
+	mso-themecolor:followedhyperlink;
+	text-decoration:underline;
+	text-underline:single;}
+p
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:9.0pt;
+	font-family:"Lucida Grande";
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{mso-style-priority:34;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-type:export-only;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	margin-bottom:.0001pt;
+	mso-add-space:auto;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:16.0pt;
+	mso-bidi-font-size:16.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#345A8A;
+	mso-themecolor:accent1;
+	mso-themeshade:181;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 3";
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 4";
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;
+	font-style:italic;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-priority:10;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:Title;
+	mso-ansi-font-size:26.0pt;
+	mso-bidi-font-size:26.0pt;
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#17365D;
+	mso-themecolor:text2;
+	mso-themeshade:191;
+	letter-spacing:.25pt;
+	mso-font-kerning:14.0pt;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 5";
+	font-family:Calibri;
+	mso-ascii-font-family:Calibri;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Calibri;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#243F60;
+	mso-themecolor:accent1;
+	mso-themeshade:127;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Balloon Text";
+	mso-ansi-font-size:9.0pt;
+	mso-bidi-font-size:9.0pt;
+	font-family:"Lucida Grande";
+	mso-ascii-font-family:"Lucida Grande";
+	mso-hansi-font-family:"Lucida Grande";
+	mso-bidi-font-family:"Lucida Grande";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:minor-bidi;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+@list l0
+	{mso-list-id:41366810;
+	mso-list-template-ids:-1302140660;}
+@list l0:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";}
+@list l0:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l0:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l1
+	{mso-list-id:183131443;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1361871188 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l1:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l1:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l1:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l1:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l1:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l1:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l2
+	{mso-list-id:258176291;
+	mso-list-template-ids:124820390;}
+@list l2:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l2:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";}
+@list l2:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l2:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l3
+	{mso-list-id:397747333;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-323196100 -1392188666 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Cambria;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l3:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l3:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l3:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l3:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l3:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4
+	{mso-list-id:552355995;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1310367682 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l4:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l4:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l5
+	{mso-list-id:716777783;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-854952802 -1336907110 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Cambria;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l5:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l5:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l5:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l5:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l5:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l6
+	{mso-list-id:1209609705;
+	mso-list-type:hybrid;
+	mso-list-template-ids:47590824 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l6:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l6:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l6:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l6:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l6:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l7
+	{mso-list-id:1222407857;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1623733830 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l7:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l7:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l7:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l7:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l7:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l8
+	{mso-list-id:1326126541;
+	mso-list-template-ids:-156841658;}
+@list l8:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l8:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";}
+@list l8:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l8:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9
+	{mso-list-id:1495297014;
+	mso-list-template-ids:151268362;}
+@list l9:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l9:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";}
+@list l9:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l9:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l10
+	{mso-list-id:1514416376;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-231146200 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l10:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l10:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l10:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l10:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l10:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l10:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l10:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l11
+	{mso-list-id:1669400004;
+	mso-list-template-ids:-823497148;}
+@list l11:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l11:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";}
+@list l11:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l11:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l11:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l11:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l11:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l11:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l11:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l12
+	{mso-list-id:1948343516;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1413361984 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l12:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l12:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l12:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l12:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l12:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l12:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l12:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l13
+	{mso-list-id:1949460926;
+	mso-list-type:hybrid;
+	mso-list-template-ids:582274936 -1336907110 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l13:level1
+	{mso-level-start-at:0;
+	mso-level-number-format:bullet;
+	mso-level-text:-;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Cambria;
+	mso-fareast-font-family:"\FF2D\FF33 \660E\671D";
+	mso-fareast-theme-font:minor-fareast;
+	mso-bidi-font-family:"Times New Roman";}
+@list l13:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l13:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l13:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l13:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l13:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l13:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";
+	mso-bidi-font-family:"Courier New";}
+@list l13:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l14
+	{mso-list-id:2040815829;
+	mso-list-type:hybrid;
+	mso-list-template-ids:392179904 67698689 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l14:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l14:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l14:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l14:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l14:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l14:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l14:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:none;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l15
+	{mso-list-id:2103063377;
+	mso-list-template-ids:-540647582;}
+@list l15:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Symbol;}
+@list l15:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:"Courier New";}
+@list l15:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l15:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l15:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l15:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l15:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l15:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+@list l15:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	mso-ansi-font-size:10.0pt;
+	font-family:Wingdings;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:Cambria;
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:minor-latin;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:minor-latin;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="1027"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=WordSection1>
+
+<div style='mso-element:para-border-div;border:none;border-bottom:solid #4F81BD 1.0pt;
+mso-border-bottom-themecolor:accent1;padding:0in 0in 4.0pt 0in'>
+
+<p class=MsoTitle>Operational Intelligence Demo Script<span style='font-size:
+13.5pt'><o:p></o:p></span></p>
+
+</div>
+
+<h1>Overview:</h1>
+
+<p class=MsoNormal>This script is provided as a guide. Do not memorize and
+dictate the script. Instead, use this script as a preparation guide to become <span
+class=SpellE>situationally</span> fluent in the demo. </p>
+
+<p class=MsoNormal>You should: </p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Introduce the Splunk mission statement </p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Highlight added value to the business</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Highlight and emphasize the Splunk
+differentiators</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Universal
+machine data platform</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Real
+time architecture</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Schema
+on the fly</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Scales
+from desktop to enterprise</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Agile
+reporting and analytics</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Fast
+time to value</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Passionate
+and vibrant community</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Highlight the pains and complexity of machine
+data without Splunk</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Contrast the before and after Splunk states</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Create a sense of urgency to collect and review
+your machine data; i.e. highlight the business value missed </p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Illustrate the ease of use of the interface</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Highlight key features of Splunk such as</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Same
+data, different views based on needs</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Dashboards</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Pivot
+tables</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Lookups</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Correlation</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Maps</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Tell a business story versus a tour of
+dashboards</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Load
+that data once and everyone gains business value</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Consider
+the needs of the audience</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Link
+the Splunk business value to various user perspectives</p>
+
+<p class=MsoNormal style='margin-left:1.0in;text-indent:-.25in;mso-list:l3 level2 lfo12'><![if !supportLists]><span
+style='font-family:"Courier New";mso-fareast-font-family:"Courier New";
+mso-bidi-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Include
+enough technical detail to capture the technical audience and not lose
+attention of the business audience</p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l3 level1 lfo12'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Remember the goal of the demo is to ignite
+excitement and curiosity to get the next meeting</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h1>Demo Script</h1>
+
+<h2>Architecture Overview</h2>
+
+<p class=MsoNormal>No matter what business you’re in, your organization creates
+massive amounts of data; machine data. Generated by the websites, applications,
+servers, network devices and mobile devices that power your business. It’s one
+of the fastest growing and most complex parts of Big Data. Without Splunk, this
+machine data is hard to collect and even harder to make sense of. Splunk makes
+this machine data accessible, usable and valuable to everyone. Let’s see how
+that’s done. </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Splunk software transforms your machine data into valuable
+real-time insight. Insight that:</p>
+
+<ul style='margin-top:0in' type=disc>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo13'><span class=GramE>deepens</span>
+     understanding of customer behavior, </li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo13'><span class=GramE>improves</span>
+     service levels, </li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo13'><span class=GramE>reduces</span>
+     operational costs, </li>
+ <li class=MsoNormal style='mso-list:l4 level1 lfo13'><span class=GramE>and</span>
+     mitigates cyber security risks. </li>
+</ul>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Splunk helps you take this machine data and make business
+sense of it. We call this operational intelligence.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>With Splunk’s Universal Machine Data Platform, we are able
+to capture this information without the use of special connectors or adaptors.
+We do this real time, any time, so that you have critical information the
+second it happens. Unlike using database technology, with Splunk there is no
+need to create predefined schemas, this dramatically reduces implementation
+costs and provides fast time to value.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To help you understand how Splunk might help your
+organization, we have built a demonstration that represents a large national
+wireless provider. This demonstration will give you a sense of how different
+roles within an organization might use Splunk to answer different types of
+questions, all from the same collection of data. Whether you are an executive,
+IT Operations manager, support person, or developer, Splunk can help provide
+the level of detail that you need.</p>
+
+<h2><o:p>&nbsp;</o:p></h2>
+
+<span style='font-size:12.0pt;font-family:Cambria;mso-ascii-theme-font:minor-latin;
+mso-fareast-font-family:"\FF2D\FF33 \660E\671D";mso-fareast-theme-font:minor-fareast;
+mso-hansi-theme-font:minor-latin;mso-bidi-font-family:"Times New Roman";
+mso-bidi-theme-font:minor-bidi;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA'><br clear=all style='mso-special-character:line-break;
+page-break-before:always'>
+</span>
+
+<p class=MsoNormal><b><span style='font-size:13.0pt;font-family:Calibri;
+mso-ascii-theme-font:major-latin;mso-fareast-font-family:"\FF2D\FF33 \30B4\30B7\30C3\30AF";
+mso-fareast-theme-font:major-fareast;mso-hansi-theme-font:major-latin;
+mso-bidi-font-family:"Times New Roman";mso-bidi-theme-font:major-bidi;
+color:#4F81BD;mso-themecolor:accent1'><o:p>&nbsp;</o:p></span></b></p>
+
+<h2>Background</h2>
+
+<p class=MsoNormal><span class=SpellE>SplunkTel</span> is a large national
+wireless provider.&nbsp; Like most companies, <span class=SpellE>SplunkTel</span>
+has a desire to monitor in real time the business activity that is flowing
+through its systems, both to monitor the systems from a stability perspective,
+and also to provide real time business metrics to its business users.&nbsp; </p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>In addition to monitoring the transactions that flow through
+their Retail Channel and Web Store, <span class=SpellE>SplunkTel</span> has
+recently introduced a new music service to improve monetization of their
+network while delivering a better end customer experience.&nbsp; The music
+service enables users to download an unlimited number of songs for a monthly
+subscription. The company has deployed Splunk to get visibility across these
+services from a business, customer care and an IT standpoint.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Data Sources and Access</h2>
+
+<p class=MsoNormal>The key sources of data for business and IT visibility
+across these services
+include:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in;mso-list:l6 level1 lfo16'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Business Process Management logs</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l6 level1 lfo16'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>RADIUS authentication logs</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l6 level1 lfo16'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Web logs from <span class=SpellE>SplunkTel's</span>
+music service</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l6 level1 lfo16'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Database logs and searches</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l6 level1 lfo16'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Middleware logs</p>
+
+<p class=MsoListParagraphCxSpMiddle style='text-indent:-.25in;mso-list:l6 level1 lfo16'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]>Geo location data</p>
+
+<p class=MsoListParagraphCxSpLast><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Business Process Management systems are the orchestration
+systems that make for a really nice visibility point for any enterprise.&nbsp;
+Since business logic is encoded in these systems, and they often provide
+business event based decision processing as well, they provide a great point to
+capture business data to provide real time insight.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>RADIUS authentication logs are common in most service
+providers, ranging from old-style dialup-ISPs, to cable and DSL providers to
+Wireless and Mobility providers.&nbsp; RADIUS is a standard, which provides
+authentication, authorization and accounting, and the providers use it to
+authenticate their users and assign them profiles (authorize), which determine
+what they can do on the network, as well as log (account) their usage.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>The Web logs from <span class=SpellE>SplunkTel’s</span>
+music service allow them to see which artists, songs and playlists users are
+accessing.&nbsp; These are standard Apache logs.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>To support their web store, <span class=SpellE>SplunkTel</span>
+also collects <span class=SpellE>Websphere</span> middleware logs as well as
+database logs and searches.</p>
+
+<p class=MsoNormal>&nbsp;&nbsp;</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Splunk Search &amp; Machine Data</h2>
+
+<p class=MsoNormal><b>&lt;Click Trans number in the orange CRM box&gt;</b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>This is a search of
+<span class=SpellE>SplunkTel's</span> CRM or business logs, which is one
+example of the machine data that is available for analysis. Splunk's mission is
+to make machine data accessible, usable and valuable to everyone.&nbsp; Let’s
+take a look at how we're able to interrogate our Machine Data, find anomalies,
+and extract insight in an ad-hoc manner.&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Here you can see
+our default search interface. Before we get started, let me provide a brief
+overview of what you are seeing. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo15'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria;color:black'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'>This is my search bar, which I can use to perform any key word or
+“Google” like search. <o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo15'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria;color:black'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'>On the right, I can select the appropriate time (including
+real-time) for my search.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo15'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria;color:black'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'>Once I run my search, I have a histogram that gives me immediate
+trend information for my data.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo15'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria;color:black'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'>In the middle, I can see the raw event or machine data that
+matches my search.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in;text-indent:-.25in;mso-list:l5 level1 lfo15'><![if !supportLists]><span
+style='mso-ascii-font-family:Cambria;mso-fareast-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:Cambria;color:black'><span
+style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'>What you see on the left side is the secret sauce for Splunk,
+which is the ability to extract knowledge at search time from the raw events.<o:p></o:p></span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='mso-ascii-font-family:
+Cambria;mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>For many
+organizations this default search interface is light years ahead of the tools
+they currently use such as manually searching through logs from the command
+line or writing custom scripts to pull out information file by file. With
+Splunk we quickly and easily pull this information together and provide an easy
+to use interface to extract value. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Let’s take a quick
+scenario. Let’s say I’m a marketing person who is interested in the number of
+activations that have occurred for iPhone users. And the real question I’m
+trying to answer is what is the most popular version of the iPhone my new
+subscribers are buying today.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Here we can see as
+we mouse over the events that Splunk is smart about understanding punctuation
+and words.<span style="mso-spacerun:yes">&nbsp; </span>This is how we build our
+index, and Splunk makes it easy to quickly drill down to a particular term we
+see in these events.<span style="mso-spacerun:yes">&nbsp; </span>Lets click on
+iPhone or type ‘<span class=SpellE>iphone</span>’ into the end of the search
+string to narrow down the results.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Now we can see that
+Splunk has narrowed down the result set significantly.<span
+style="mso-spacerun:yes">&nbsp; </span>You can also see that its highlighted
+iPhone everywhere it sees iPhone.<span style="mso-spacerun:yes">&nbsp;
+</span>This is useful if you’re searching for an error or a specific term to
+easily see where in your events these terms are found.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Looking at the
+left, I see Splunk has found an <span class=SpellE>orderType</span>
+field.&nbsp; Splunk has auto-extracted this field by examining the data for
+key/value pairs, such as this=that or this: that.<span
+style="mso-spacerun:yes">&nbsp; </span>Splunk will also automatically
+understand the structure of JSON or XML data. If the data lacks this
+self-describing structure, <span class=GramE>Splunk can be configured to
+extract structure from even the grittiest data by configuring Regular
+Expression</span> based extractions.<span style="mso-spacerun:yes">&nbsp;
+</span>Many of the common data types have been configured for you and these can
+be downloaded from Splunk’s website for free.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Most importantly,
+all of this structure is added at search time, meaning if the format of your
+data changes Splunk will pick up on it automatically or can be easily
+reconfigured to understand the new structure.<span
+style="mso-spacerun:yes">&nbsp; </span>We call this Schema-on-the-fly.<span
+style="mso-spacerun:yes">&nbsp; </span>As opposed to the old way of parsing
+data and throwing it into a rigid structure like a RDBMS, Splunk can easily
+adapt and understand any data type easily.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-ascii-font-family:Cambria;mso-hansi-font-family:Cambria;mso-bidi-font-family:
+"Times New Roman";color:black'>&lt;Click <span class=SpellE>orderType</span>
+field&gt;</span></b><span style='font-size:13.5pt;mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>By clicking on the <span
+class=SpellE>orderType</span> field I can see the top values for Order Type. It
+would seem <span class=SpellE>ChangeESN</span> is our most popular order type,
+which makes sense since more customers are changing phones than becoming new
+customers.&nbsp; <span class=SpellE>NewActivation</span> is second however, so
+lets click on that to further narrow our results to just new sales. <b
+style='mso-bidi-font-weight:normal'>&lt;Click <span class=SpellE>NewActivation</span>&gt;</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Now, as you can
+see, we've quickly narrowed our results from a raw set of data down to Sales
+from our BPM system pertaining only to iPhones, using only the raw data in our
+logs. Note, now instead of looking for just a term, like ‘iPhone’, we’re now
+looking inside the structure of this data and looking for events where the <span
+class=SpellE>orderType</span> <i style='mso-bidi-font-style:normal'>field</i>
+is New Activation.<span style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>We can quickly
+figure out which particular model of iPhone is the most popular by looking at
+the <span class=SpellE>phoneName</span> field, which contains a description of
+the model being sold.&nbsp;&nbsp;<b>Clicking &quot;Top values &quot;</b>&nbsp;turns
+our results screen into a bar chart of the top Phones being sold over the
+&quot;Last 60 Minutes&quot;, which is the time frame we have selected.&nbsp;
+You can see Splunk has added a top command after a pipe symbol, which shows
+just a glimpse into how our search language works.&nbsp; There are over 125
+commands in the Splunk search language, which help us filter, collate,
+correlate and analyze Machine Data. &nbsp;If we want we can turn this bar chart
+into a Pie Chart, which is more appropriate for this type of analysis.&nbsp; <b
+style='mso-bidi-font-weight:normal'>&lt;Click Pie Chart&gt;</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>This is a good
+example of the agile reporting and analytics available in Splunk.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'>&lt;Click Save As to
+pull down menu&gt;<o:p></o:p></b></p>
+
+<p class=MsoNormal>So with a couple of mouse clicks, I was able to create a
+useful chart that I can then add to a dashboard. Any searches that I build can
+also be turned into an alert from here as well.</p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+<p class=MsoNormal>Although this search interface is quite easy to use,
+Business users might be overwhelmed seeing the actual raw events.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Splunk Pivot </h2>
+
+<p class=MsoNormal><b>&lt;Click on Pivot&gt;</b></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>From the Pivot
+interface, <span class=SpellE>SplunkTel</span> can organize the data in a way
+that makes sense to a business user. From here I can answer questions about any
+of these categories.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>The structure
+represented here is applied at search time, so it is extremely resilient to any
+changes to the underlying machine data coming into Splunk.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Let’s say we are
+interested in sales by the different rate plans available. To do this, I simply
+click on this sales hyperlink. <b style='mso-bidi-font-weight:normal'>&lt;Click
+Sales&gt;</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>I can filter my
+report by time.<span style="mso-spacerun:yes">&nbsp; </span><b
+style='mso-bidi-font-weight:normal'>&lt;Click Last 60 Minutes&gt;</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Next I’ll select
+the first attribute I’d like to have in my report, in this case <span
+class=SpellE>PhoneType</span>. <b style='mso-bidi-font-weight:normal'>&lt;Click
+Split Rows &#8211; Phone Type - Add to Table&gt;</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Now let’s add an
+additional column to capture the Plan Type. <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-ascii-font-family:Cambria;mso-hansi-font-family:Cambria;mso-bidi-font-family:
+"Times New Roman";color:black'>&lt;Click Split Columns &#8211; Plan Type - Add
+To Table&gt; <o:p></o:p></span></b></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-ascii-font-family:Cambria;mso-hansi-font-family:Cambria;mso-bidi-font-family:
+"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>With a couple of
+clicks I have a nice report of sales by Phone Type for the Post and Prepaid
+rate plans. If I don’t want simple counts, I can modify this search by changing
+the Column Values attribute to Plan Price and update with the average of the
+plan price. <b style='mso-bidi-font-weight:normal'>&lt;Click Column Values
+&#8211; Count of Sales &#8211;Back Arrow - Plan Price -Update&gt;</b><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>If I want to view
+this as a chart, I simply click on the appropriate chart icon. <o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-ascii-font-family:Cambria;mso-hansi-font-family:Cambria;mso-bidi-font-family:
+"Times New Roman";color:black'>&lt;Click Area Chart Icon&gt;</span></b><span
+style='mso-ascii-font-family:Cambria;mso-hansi-font-family:Cambria;mso-bidi-font-family:
+"Times New Roman";color:black'> This Area Chart represents this data quite
+well.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>And just like my
+earlier search example, I can easily save this as a dashboard panel. <b
+style='mso-bidi-font-weight:normal'>&lt;Click Save As&gt;<o:p></o:p></b></span></p>
+
+<h2><o:p>&nbsp;</o:p></h2>
+
+<h2>Splunk Dashboards </h2>
+
+<p class=MsoNormal><b>&lt;Click Dashboards - Sales&gt;<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Let’s take a look at the dashboard that <span class=SpellE>SplunkTel</span>
+has created for its sales force. Here we are providing sales with real-time
+visibility of new activations as well as a prediction overlay. <b
+style='mso-bidi-font-weight:normal'>&lt;Hover over Green Prediction Line In
+Activations&gt; <o:p></o:p></b></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>With this <span class=SpellE>realtime</span> sales and prediction
+capability, <span class=SpellE>SplunkTel</span> can easily see the
+effectiveness of a new promotion or in this case pointing out potential
+problems in the environment. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>You can see at 35 past the hour we had a complete dip in
+transaction to almost zero. You can also see that the prediction line was above
+zero. Splunk knew this was not expected behavior and we could easily alert when
+we see this particular scenario.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Splunk can also augment log data with traditional database sources
+such as pulling in pricing data.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Scroll down to
+Sales Map&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>On the sales map, executives can see over time or in real-time
+exactly in which markets they are selling their product.&nbsp; The map gives at
+a glance visibility to geographical hot spots.&nbsp; Sales are mapped on a <span
+class=GramE>zip code by zip code</span> basis and allow visibility down a very
+small geographic area.&nbsp; <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>This is made possible by that same machine data we were just
+looking at, along with Splunk's ability to lookup that Machine Data against an
+external source like a database or CSV file.&nbsp; In this case, we have a CSV
+file that maps zip code from the BPM logs to a Geo-location that allows us to
+lay all that information out on a map.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>The Sales by City State bubble chart is an example of a custom
+chart that is not native to Splunk. We ship examples of this and others to
+provide customers with the opportunity to add their own custom widgets to their
+dashboard. This opens up a world of opportunity for different visualizations, workflows,
+or embedding entire other applications into Splunk to customize to the needs of
+your business.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>The phone dashboards contain a relevant bar chart and table with <span
+class=SpellE>Sparklines</span> showing a count of sales over time.&nbsp; These
+dashboards are nothing more than a combination of the searches and graphs we
+were creating ad-hoc before, but configured to display in one pane of glass so
+you can get visibility out across your enterprise into your key operational
+data.&nbsp; Splunk complements traditional business intelligence solutions by
+providing real-time sales insight into activations and orders.&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Click Dashboards
+&#8211; Content Marketing&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Next, I can take this same log data and look at it from a
+Marketing perspective. This dashboard provides in-depth insight into how
+customers are interacting with content provided through the service.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>With the Top 10 Searches chart, Marketing can track the trending
+of different types of content and ensure that the service is offering content
+associated with those services.&nbsp; With Top Song downloads, Marketing can
+identify similar songs and make them available on the content library.&nbsp;
+They can also use such data to charge premium for ads displayed in conjunction
+with the more popular download pages.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>You are likely already logging this information today in your
+environment. If you aren’t looking at it you can see the business intelligence
+that you are missing. Paying attention to this data can help improve your
+business. Splunk allows you to easily collect and provide an interface for this
+data for various audiences; it’s the same data with different lenses. <o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Click Dashboards
+&#8211; Web Store Operations&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Let’s switch hats once again and look at this data from an IT
+perspective.<span style="mso-spacerun:yes">&nbsp; </span>This Web Store
+Operational Visibility Dashboard allows me to quickly determine if my
+environment is healthy.<span style="mso-spacerun:yes">&nbsp; </span>Here we are
+tracking a number of operational metrics such as Service Level Agreements,
+failed transactions and throughput capacity.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>SplunkTel</span></span><span style='mso-bidi-font-family:"Times New Roman";
+color:black'> has complete flexibility with regard to defining these metrics.
+In this case, they are able to look at the complete transaction from request
+through fulfillment because they are capturing all the logs in the process. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>We saw earlier in our sales dashboard that we had a dip in
+transactions and we really want to dig into what is causing those dips. Since
+we have retained the full logs files in their raw format we can be digging into
+the details, all from the same data collection.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>We can see in our Real-Time Transaction Volume chart that same dip
+in transactions we saw on our sales dashboard. That is concerning and we need
+to determine the root cause of this problem.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Show both Real Time Transaction Volume and Lower Transaction
+Volume Graph<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Click View
+Environment State hyperlink&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>From my environment state dashboard, I can see the average
+transaction latency to be about 600 milliseconds. (Key Web Server Metrics) But
+as I look over time, I can see I’m humming along at around 600 milliseconds and
+then I get a spike up to about 2 seconds around that same time period I saw the
+dip in transactions.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>If I look at my Key Database Metrics meter this portion of the
+infrastructure seems to be having the largest problem. Let’s investigate this
+tier a bit further.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Click Inspect
+Database Server hyperlink&gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>As I look at the database tier I see a huge spike in concurrency
+during that same time frame. Obviously everything is backing up.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>As I look at my Query Performance most of my queries are humming
+along just fine but I have a couple of queries that spike up here. I have one
+query that is taking 35 seconds to run. That is orders of magnitude longer than
+my average.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>In my Queries panel, Splunk is using advanced algorithms to group
+items by likeness.<span style="mso-spacerun:yes">&nbsp; </span>We call this the
+cluster command.<span style="mso-spacerun:yes">&nbsp; </span>Here it has taken
+thousands of unique queries and grouped them together by unique pattern. This
+top query is my offending query. When we look at the details of the search it
+doesn’t look like an OLTP query this actually looks like a reporting query. I’m
+actually selecting everything from a particular table. When I look at the <span
+class=SpellE>sparkline</span> field I can see that query isn’t running at all
+until the time of my problem. The same holds true for the next 3 queries listed
+below.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>This is likely the root cause of my problem. <span class=SpellE>SplunkTel</span>
+can now work with the users running these searches and provide an alternative
+solution. With Splunk I have dramatically improved the speed in which I arrive
+at the root cause of my problem. <span class=SpellE>Healthtrans</span>, a
+pharmacy benefits provider, achieved a 98% reduction in Mean Time to Repair
+(MTTR) and a 90% success rate in root cause identification (versus an industry
+standard of 70-80%. As new problems arise and are solved by Splunk, the success
+rate percentage continues to improve.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Click Searches
+&amp; Reporting &#8211; OI Music Service &#8211; Search Icon &gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Before we talk about <span class=SpellE>SplunkTel’s</span>
+Customer Care view, let’s go back to our search interface to understand a bit
+more about our machine data.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>&nbsp;&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>In order to really understand what a user is doing on <span
+class=SpellE>SplunkTel’s</span> network they need to track the full session
+from the time they authenticate into the environment to when they start
+searching for and downloading music.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>&nbsp;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>The challenge with tracking a user through his or her session is
+that this activity is managed by multiple systems. In this example, the radius
+authentication logs and the web logs.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>When a user comes into <span class=SpellE>Splunktel</span>, radius
+knows their mobile directory number (MDN) and what IP has been assigned to that
+user at a particular time.<span style="mso-spacerun:yes">&nbsp; </span>To
+complicate matters further the IP address will be reused for a different user
+when this user disconnects. The music logs on the other hand understand time
+and IP address. <b style='mso-bidi-font-weight:normal'>&lt;Point out phone
+number and IP in two different logs&gt;</b> <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>We need to be able to correlate activity with an understanding of
+the time an IP Address was assigned to a particular customer.<span
+style="mso-spacerun:yes">&nbsp; </span><o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><b style='mso-bidi-font-weight:normal'><span
+style='mso-bidi-font-family:"Times New Roman";color:black'>&lt;Click Searches
+&amp; Reporting &#8211; OI Music Service Transaction&#8211; Search Icon &gt;<o:p></o:p></span></b></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>Using time, MDN, and IP, Splunk is able to tie these events
+together in the form of a transaction.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>In this case, what we have is a collection of clustered events
+representing the activities and actions of that user while they were connected
+to our service.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-bidi-font-family:"Times New Roman";
+color:black'>In fact we can see everything from when they logged in, to what
+they searched for, and even what they downloaded. We know everything about the
+behavior of that user during their session. This is where we see the real power
+of Splunk as a Universal Machine Data platform. We have all the data in one
+place and regardless of format we are able to combine it in meaningful ways to
+answer your most challenging business questions. Cars.com, a leading website
+for vehicle shopping, purchased Splunk to ensure top level quality of its
+users’ experience on their website. Cars.com estimates a return on investment
+ranging from 200% to as much as 400%. Details of their use case can be found on
+splunk.com.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Customer Care</h2>
+
+<p class=MsoNormal><b>&lt;Click Customer Care &#8211; Customer Care &#8211;
+Search Icon&gt;<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>This tie to their <span
+class=GramE>customer,</span> opens up the possibility of giving new insight to
+the customer care agent.<span style="mso-spacerun:yes">&nbsp; </span>Now when
+their customer calls, the agent can search by phone number and Splunk will make
+the connection to the business logs via the IP address.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Note here that the
+care agent is using Splunk to gain insight into their data.<span
+style="mso-spacerun:yes">&nbsp; </span>We’re simplifying the interface using a
+form search to make it easy for them to query Splunk data with something that’s
+familiar to them, the customer’s phone number.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>I can see their
+authentications over time, their download history, as well as any errors they
+have had when trying to download a particular song.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'>SplunkTel’s</span></span><span style='mso-ascii-font-family:Cambria;
+mso-hansi-font-family:Cambria;mso-bidi-font-family:"Times New Roman";
+color:black'> customer care agents can now do basic troubleshooting without
+using more expensive tier 2 &amp; 3 resources.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Customization</h2>
+
+<p class=MsoNormal><b>&lt;Click Customer Care &#8211; <span class=SpellE>SplunkTel</span>
+&#8211; Search Icon&gt;<o:p></o:p></b></p>
+
+<p class=MsoNormal><b><o:p>&nbsp;</o:p></b></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Customization is at
+the core of what we delivered with Splunk 6. We not only allow you to customize
+dashboard widgets but we also allow you to customize the entirety of the
+experience with Splunk.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Customer care may
+not be use to looking at a Splunk interface so we can provide them an interface
+that may look a lot more familiar to them.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><br>
+In this case, this is all hosted inside of Splunk and we are showing you
+exactly the same dataset but with unique chrome designed specifically for the <span
+class=SpellE>SplunkTel</span> customer service team.<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h2>Summary</h2>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>In summary, this
+simple demonstration has shown that Splunk can be used for robust business
+analytics, improving service levels, and reducing operational costs through
+quick root cause analysis and proactive monitoring.<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>I hope this has
+given you a glimpse of the new levels of visibility and insight Splunk can
+provide to both IT and the business. <o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoNormal><span style='mso-ascii-font-family:Cambria;mso-hansi-font-family:
+Cambria;mso-bidi-font-family:"Times New Roman";color:black'>Thank you.</span> </p>
+
+</div>
+
+</body>
+
+</html>

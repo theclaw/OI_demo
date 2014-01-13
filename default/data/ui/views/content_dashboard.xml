@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><dashboard>
+  <label>Content Marketing</label>
+  <row>
+    <chart>
+      <title>Top Artist Searches</title>
+      <searchString>index=oidemo sourcetype="access_custom" bc_uri="/browse/search/*"  | top search_terms</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.chart">bar</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.placement">none</option>
+      <option name="charting.secondaryAxis.maximumNumber">""</option>
+      <option name="charting.secondaryAxis.minimumNumber">""</option>
+      <option name="charting.secondaryAxis.scale">""</option>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="height">350px</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+    <table>
+      <searchString>index=oidemo sourcetype="access_custom" bc_uri=/sync/addtolibrary* | stats count, sparkline(count) as "Sparkline" by track_name | sort count desc | table track_name Sparkline</searchString>
+      <title>Top Song Downloads</title>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+      <format type="sparkline" field="Sparkline">
+        <option name="lineColor">#5379af</option>
+        <option name="fillColor">#CCDDFF</option>
+        <option name="lineWidth">1</option>
+        <option name="height">20</option>
+      </format>
+    </table>
+  </row>
+  <row>
+    <chart>
+      <title>Top Artist Downloads</title>
+      <searchName>Telco - Top Artist Downloads</searchName>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">zero</option>
+      <option name="charting.chart.stackMode">stacked100</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.secondaryAxis.maximumNumber">""</option>
+      <option name="charting.secondaryAxis.minimumNumber">""</option>
+      <option name="charting.secondaryAxis.scale">""</option>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+      <option name="charting.axisTitleX.visibility">collapsed</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+  </row>
+</dashboard>

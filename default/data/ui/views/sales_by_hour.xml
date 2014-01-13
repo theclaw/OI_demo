@@ -1,0 +1,170 @@
+<form>
+	<label>Sales by Hour (Today)</label>
+	<description/>
+	<fieldset autoRun="true" submitButton="false">
+		<input type="dropdown" token="network_provider">
+			<label>Network Provider</label>
+			<choice value="*">ALL</choice>
+			<choice value="Splunktel">Splunktel</choice>
+			<choice value="Clearwire">Clearwire</choice>
+			<choice value="Sprint">Sprint</choice>
+			<default>*</default>
+		</input>
+		<input type="dropdown" token="plan_type">
+			<label>Plan Type</label>
+			<choice value="*">ALL</choice>
+			<choice value="PostPaid">PostPaid</choice>
+			<choice value="PrePaid">PrePaid</choice>
+			<default>*</default>
+		</input>
+	</fieldset>
+	<row grouping="5">
+		<single>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| stats sum(count) as count 
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+			<earliestTime>@d</earliestTime>
+			<latestTime>now</latestTime>
+			<option name="afterLabel">activations</option>
+			<option name="classField">range</option>
+			<option name="field">count</option>
+			<option name="linkView">search</option>
+		</single>
+		<single>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| stats avg(planPrice) as ARPU 
+| eval ARPU=round(ARPU,2) 
+| rangemap field=ARPU low=0-49 elevated=50-59 high=60-69 severe=70-100 default=low</searchString>
+			<earliestTime>@d</earliestTime>
+			<latestTime>now</latestTime>
+			<option name="beforeLabel">Revenue per Phone $</option>
+			<option name="classField">range</option>
+			<option name="field">ARPU</option>
+			<option name="format">decimal</option>
+			<option name="linkView">search</option>
+		</single>
+		<single>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| search phoneType=iPhone 
+| stats sum(count) as count 
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+			<earliestTime>@d</earliestTime>
+			<latestTime>now</latestTime>
+			<option name="afterLabel">iPhone activations</option>
+			<option name="classField">range</option>
+			<option name="field">count</option>
+			<option name="linkView">search</option>
+		</single>
+		<single>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| search phoneType=Android 
+| stats sum(count) as count  
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+			<earliestTime>@d</earliestTime>
+			<latestTime>now</latestTime>
+			<option name="afterLabel">Android activations</option>
+			<option name="classField">range</option>
+			<option name="field">count</option>
+			<option name="linkView">search</option>
+		</single>
+		<single>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=5m
+| stats count  
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+			<earliestTime>-7d@d</earliestTime>
+			<latestTime>-7d</latestTime>
+			<option name="afterLabel">activations one week ago</option>
+			<option name="classField">range</option>
+			<option name="field">count</option>
+			<option name="linkView">search</option>
+		</single>
+	</row>
+	<row>
+		<chart>
+			<title>Activations by Minute - Last 2 Hours</title>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) 
+| fillnull value="" marketCity networkProviderName orderType phoneName planDescription planPrice planType 
+| search $network_provider$ $plan_type$ 
+| eval last2Hours=if(_time&gt;relative_time(now(), "-2h"), 1, 0) 
+| bin _time span=1m 
+| stats count by _time, last2Hours, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| search last2Hours=1 
+| timechart fixedrange=false span=1m sum(count)</searchString>
+			<earliestTime>-2h@h</earliestTime>
+			<latestTime>now</latestTime>
+			<option name="charting.axisTitleX.visibility">visible</option>
+			<option name="charting.axisTitleY.visibility">visible</option>
+			<option name="charting.axisX.scale">linear</option>
+			<option name="charting.axisY.scale">linear</option>
+			<option name="charting.chart">column</option>
+			<option name="charting.chart.nullValueMode">gaps</option>
+			<option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+			<option name="charting.chart.stackMode">default</option>
+			<option name="charting.chart.style">shiny</option>
+			<option name="charting.drilldown">all</option>
+			<option name="charting.layout.splitSeries">0</option>
+			<option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+			<option name="charting.legend.placement">none</option>
+			<option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+		</chart>
+	</row>
+	<row>
+		<chart>
+			<title>Activations by Hour - Today</title>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) 
+| fillnull value="" marketCity networkProviderName orderType phoneName planDescription planPrice planType 
+| search $network_provider$ $plan_type$ 
+| eval last2Hours=if(_time&gt;relative_time(now(), "-2h"), 1, 0) 
+| bin _time span=1m 
+| stats count by _time, last2Hours, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| timechart span=1H sum(count)</searchString>
+			<earliestTime>@d</earliestTime>
+			<latestTime>now</latestTime>
+			<option name="charting.axisTitleX.visibility">visible</option>
+			<option name="charting.axisTitleY.visibility">visible</option>
+			<option name="charting.axisX.scale">linear</option>
+			<option name="charting.axisY.scale">linear</option>
+			<option name="charting.chart">column</option>
+			<option name="charting.chart.nullValueMode">gaps</option>
+			<option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+			<option name="charting.chart.stackMode">default</option>
+			<option name="charting.chart.style">shiny</option>
+			<option name="charting.drilldown">all</option>
+			<option name="charting.layout.splitSeries">0</option>
+			<option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+			<option name="charting.legend.placement">none</option>
+			<option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+		</chart>
+		<chart>
+			<title>Activations by Hour - One Week Prior</title>
+			<searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=5m
+| timechart span=1H count</searchString>
+			<earliestTime>-7d@d</earliestTime>
+			<latestTime>-6d@d</latestTime>
+			<option name="charting.axisTitleX.visibility">visible</option>
+			<option name="charting.axisTitleY.visibility">visible</option>
+			<option name="charting.axisX.scale">linear</option>
+			<option name="charting.axisY.scale">linear</option>
+			<option name="charting.chart">column</option>
+			<option name="charting.chart.nullValueMode">gaps</option>
+			<option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+			<option name="charting.chart.stackMode">default</option>
+			<option name="charting.chart.style">shiny</option>
+			<option name="charting.drilldown">all</option>
+			<option name="charting.layout.splitSeries">0</option>
+			<option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+			<option name="charting.legend.placement">none</option>
+			<option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+		</chart>
+	</row>
+</form>

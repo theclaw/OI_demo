@@ -1,0 +1,93 @@
+<dashboard>
+  <label>Music Service Activation</label>
+  <description/>
+  <row>
+    <map>
+      <title>Activations by Region</title>
+      <searchString>index=oidemo sourcetype=radius 
+| iplocation device_ip
+| geostats latfield=lat longfield=lon count</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="mapping.markerLayer.markerOpacity">0.8</option>
+      <option name="mapping.markerLayer.markerMinSize">10</option>
+      <option name="mapping.markerLayer.markerMaxSize">50</option>
+      <option name="mapping.data.maxClusters">1000</option>
+      <option name="mapping.map.center">(39.8282,-38.125000)</option>
+      <option name="mapping.map.zoom">2</option>
+      <option name="mapping.tileLayer.minZoom">2</option>
+      <option name="mapping.tileLayer.maxZoom">7</option>
+      <option name="height">300px</option>
+      <option name="mapping.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </map>
+  </row>
+  <row>
+    <chart>
+      <title>Users Authenticating Over Time - Last Hour</title>
+      <searchString>index=oidemo sourcetype="radius" start 
+| timechart count</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">none</option>
+    </chart>
+    <chart>
+      <title>Count of Activations - Last Hour</title>
+      <searchString>index=oidemo sourcetype="access_custom" bc_uri="/auth*" 
+| timechart count</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">none</option>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <title>Concurrent Users - Last Hour</title>
+      <searchString>index=oidemo sourcetype="radius" 
+| timechart count</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">none</option>
+      <option name="height">300px</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+    </chart>
+  </row>
+</dashboard>

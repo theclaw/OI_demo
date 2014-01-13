@@ -1,0 +1,48 @@
+<nav search_view="search" color="#5379af">
+   <collection label="Architecture">
+     <view name="start" default="true" />
+     <view name="splunk_arch" />
+     <view name="machine_data" />
+   </collection>
+   <view name="data_models" />
+   <collection label="Dashboards">
+      <view name="sales_realtime" />
+      <view name="content_dashboard" />
+      <collection label="Webstore Operations">
+         <view name="webstore_operations" />
+         <view name="env_state" />
+         <view name="db_state" />
+         <view name="exec_kpi" />
+      </collection>
+   </collection>
+   <collection label="Searches &amp; Reports">
+      <saved source="all" match="OI - Music" />
+      <collection label="Other">
+         <saved source="all" match="Shopping Cart" />
+         <saved source="all" match="OI - Business" />
+      </collection>
+   </collection>
+   <collection label="Customer Care">
+      <view name="customer_care" />
+      <view name="splunktel" />
+   </collection>
+   <view name="search" />
+   <collection label="Extras">
+      <collection label="Sales">
+         <view name="sales_by_rate_plan" />
+         <view name="sales_by_hour" />
+         <view name="all_orders" />
+         <view name="map" />
+      </collection>
+      <collection label="Music Service">
+         <view name="music_service_activation" />
+         <view name="download_dashboard" />
+         <view name="music_operations" />
+      </collection>
+   </collection>
+   <collection label="Help">
+      <view name="help_pass" />
+      <view name="help_script" />
+      <view name="help_video" />
+   </collection>
+</nav>

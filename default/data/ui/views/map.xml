@@ -1,0 +1,44 @@
+<form>
+    <label>All Sales Map</label>
+    <fieldset autoRun="true" submitButton="false">
+		<input type="dropdown" token="network_provider">
+			<label>Network Provider</label>
+			<choice value="*">ALL</choice>
+			<choice value="Splunktel">Splunktel</choice>
+			<choice value="Clearwire">Clearwire</choice>
+			<choice value="Sprint">Sprint</choice>
+			<default>*</default>
+		</input>
+		<input type="dropdown" token="plan_type">
+			<label>Plan Type</label>
+			<choice value="*">ALL</choice>
+			<choice value="PostPaid">PostPaid</choice>
+			<choice value="PrePaid">PrePaid</choice>
+			<default>*</default>
+		</input>
+      	<input type="dropdown" token="groupby">
+			<label>Group By Field</label>
+			<choice value=" ">None</choice>
+			<choice value="by networkProviderName">Split By Network Provider</choice>
+			<choice value="by planType">Split By Plan Type</choice>
+			<default>by networkProviderName</default>
+		</input>
+		<input type="time" searchWhenChanged="true">
+			<default>
+				<earliestTime>-60m@m</earliestTime>
+				<latestTime>now</latestTime>
+			</default>
+		</input>
+	</fieldset>
+    <row>
+        <map>
+        	<title>Sales</title>
+            <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$| eval trimMarketZip=substr(marketZip, 1, 5) | lookup ZipLookup marketZip AS trimMarketZip | geostats latfield=GeoLat longfield=GeoLng count $groupby$</searchString>
+            <option name="mapping.data.maxClusters">250</option>
+          	<option name="mapping.map.center">(39.810646,-98.556976)</option>
+            <option name="mapping.map.fitBounds">(26,66.95,49.38,124.77)</option>
+            <option name="mapping.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+			<option name="charting.legend.masterLegend">null</option> 
+        </map>
+    </row>
+</form>

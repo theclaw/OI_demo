@@ -1,0 +1,126 @@
+<dashboard>
+  <label>Web Store Operational Visibility</label>
+  <description/>
+  <row>
+    <chart>
+      <title>SLA Infractions - Last Hour</title>
+      <searchString>index=oidemo sourcetype="access_combined" | eval bytes = bytes / 20 | eval sla=105 | timechart avg(sla) as SLA avg(bytes) as avgtx span=1m |eval avgtx=round(avgtx,0)| gauge avgtx 0 20 50 250</searchString>
+      <earliestTime>-15m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.chart">radialGauge</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.rangeValues">["0","30","80","125"]</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">minimal</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.gaugeColors">[0x84E900,0xFFE800,0xBF3030]</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Failed Transactions - Last Hour</title>
+      <searchString>index=oidemo * | head 1 | eval count = "42" | gauge count 0 20 50 250</searchString>
+      <earliestTime>-1m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.chart">radialGauge</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.rangeValues">["0","30","70","100"]</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">minimal</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.gaugeColors">[0x84E900,0xFFE800,0xBF3030]</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+    </chart>
+    <chart>
+      <title>Current Capacity</title>
+      <searchString>index=oidemo sourcetype="access_combined" | eval bytes = bytes / 50 | eval capacity = 100 - bytes | stats avg(capacity) as capacity | eval rcapacity = round(capacity) | gauge rcapacity 0 40 60 100</searchString>
+      <earliestTime>rt-1m@m</earliestTime>
+      <latestTime>rt</latestTime>
+      <option name="charting.chart">fillerGauge</option>
+      <option name="charting.chart.usePercentageRange">true</option>
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <title>Real-Time Transaction Volume</title>
+      <searchString>index=oidemo sourcetype="access_combined" | eval bytes = bytes / 50 | eval aaa = round(((random() * bytes) /(random() * bytes))*100) | search aaa&gt; 60 aaa&lt;88 | eval avg_trans = aaa | timechart avg(avg_trans) as "7-day Average" avg(bytes) as "Transactions"</searchString>
+      <earliestTime>rt-1h</earliestTime>
+      <latestTime>rt</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">area</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+  </row>
+  <row grouping="1,2">
+    <chart>
+      <title>SLA Infractions - Last 60 Minutes</title>
+      <searchString>index=oidemo sourcetype="access_combined" | eval bytes = bytes / 20 | eval sla=105 | timechart avg(sla) as SLA avg(bytes) as "Avg Tx Duration" span=1m</searchString>
+      <earliestTime>-1h@h</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+    <chart>
+      <title>Transaction Volume</title>
+      <searchString>index=oidemo sourcetype="access_combined" | eval bytes = round(bytes / 20, 0) | timechart perc1(bytes) as "Failed" avg(bytes) as "Successful" | eval bytes = round(bytes)</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">stacked</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+    <html>
+      <a href="env_state">View Environment State</a>
+    </html>
+  </row>
+</dashboard>

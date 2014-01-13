@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Sales by City/State (Custom HTML) | Splunk</title>
+    <meta name="description" content="listen to your data" />
+    <meta name="author" content="Splunk Inc." />
+    <meta name="viewport" content="width=1024, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="/en-US/static/@161904/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/en-US/static/@161904/css/pages/dashboard-simple-bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="/en-US/static/@161904:1/app/demo_bubbles/application.css" />
+</head>
+<body class="simplexml preload">
+<header>
+    <div id="placeholder-splunk-bar">
+        <a href="/en-US/app/launcher/home" class="brand" title="splunk &gt; listen to your data">splunk<strong>&gt;</strong></a>
+    </div>
+    <div id="placeholder-app-bar"></div>
+</header>
+<div class="dashboard-body container-fluid main-section-body" data-role="main">
+    <div class="dashboard-header clearfix">
+        <h2>Sales by City/State (Custom HTML)</h2>
+        <p class="description"></p>
+    </div>
+    <div class="dashboard-row dashboard-row1">
+        <div class="dashboard-cell" style="width: 100%;">
+            <div class="dashboard-panel">
+                <div class="dashboard-element" id="element1">
+                    <div class="panel-head">
+                        <h3>Sales by City State</h3>
+                    </div>
+                    <div class="panel-body"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- Mod #1, Added row to the dashboard HTML -->
+    <div class="dashboard-row dashboard-row2">
+        <div class="dashboard-cell" style="width: 100%;">
+            <div class="dashboard-panel">
+                <div class="dashboard-element" id="element2">
+                    <div class="panel-head">
+                        <h3 style="color: tomato;">escapehatch</h3>
+                    </div>
+                    <div class="panel-body"><p id="chart"></p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Mod #1 -->
+
+</div>
+<footer></footer>
+<script>
+    var i18n_register = function(){}
+</script>
+<script src="/en-US/config?autoload=1"></script>
+<script src="/en-US/static/@161904/js/i18n.js"></script>
+<script src="/en-US/static/@161904/js/build/splunkjs/config.js"></script>
+
+<!-- Mod #2, D3 Bubble Chart from http://bl.ocks.org/mbostock/4063269 -->
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+function dovis(root) {
+    var diameter = 960,
+        format = d3.format(",d"),
+        color = d3.scale.category20c();
+
+    var bubble = d3.layout.pack()
+        .sort(null)
+        .size([diameter, diameter])
+        .padding(1.5);
+
+    d3.select("#chart>svg").remove();
+    var svg = d3.select("#chart").append("svg")
+        .attr("width", diameter)
+        .attr("height", diameter)
+        .attr("class", "bubble");
+
+    var node = svg.selectAll(".node")
+        .data(bubble.nodes(classes(root))
+        .filter(function(d) { return !d.children; }))
+      .enter().append("g")
+        .attr("class", "node")
+        .attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+
+    node.append("title")
+        .text(function(d) { return d.className + ": " + format(d.value); });
+
+    node.append("circle")
+        .attr("r", function(d) { return d.r; })
+        .style("fill", function(d) { return color(d.packageName); });
+
+    node.append("text")
+        .attr("dy", ".3em")
+        .style("text-anchor", "middle")
+        .text(function(d) { return d.className.substring(0, d.r / 3); });
+
+    // Returns a flattened hierarchy containing all leaf nodes under the root.
+    function classes(root) {
+      var classes = [];
+
+      function recurse(name, node) {
+        if (node.children) node.children.forEach(function(child) { recurse(node.name, child); });
+        else classes.push({packageName: name, className: node.name, value: node.size});
+      }
+
+      recurse(null, root);
+      return {children: classes};
+    }
+
+    d3.select(self.frameElement).style("height", diameter + "px");
+}
+</script>
+<!-- End Mod #2 -->
+
+
+<script type="text/javascript">
+require.config({
+    baseUrl: "/en-US/static/@161904/js"
+});
+require([
+    "splunkjs/mvc", 
+    "splunkjs/mvc/utils",
+    "underscore",
+    "jquery",
+    "splunkjs/mvc/simplexml",
+    "splunk.config"], 
+    function(mvc, utils, _, $) {
+        // AUTO-COMPILED JAVASCRIPT
+
+        //
+        // Create header and footer Splunk UI
+        //
+        var HeaderView = require("splunkjs/mvc/headerview");
+        new HeaderView({
+            name: 'header',
+            section: 'dashboards',
+            el: $('header')
+        }).render();
+
+        var FooterView = require("splunkjs/mvc/footerview");
+        new FooterView({
+            name: 'footer',
+            el: $('footer')
+        }).render();
+
+        var Dashboard = require("splunkjs/mvc/simplexml/dashboard");
+        new Dashboard({
+            name: 'dashboard',
+            el: $('.dashboard-body')
+        }).render();
+
+        //
+        // Create components
+        //
+        
+        var TableElement = require("splunkjs/mvc/simplexml/element/table");
+        new TableElement({
+            "name": "element1",
+            "dataOverlayMode": "none",
+            "displayRowNumbers": true,
+            "drilldown": "row",
+            "wrap": "true",
+            "managerid": "search1",
+            "el": $('#element1')
+        }).render();
+
+        splunkjs.mvc.Components.get('element1').on("drilldown", function(e){
+            e.defaultDrilldown();
+        });
+
+        //
+        // Create searches
+        //
+
+
+        var SearchManager = require("splunkjs/mvc/searchmanager");
+        new SearchManager({
+            "name": "search1",
+            "earliest_time": "-1h",
+            "search": "search index=oidemo sourcetype=business_event (orderType=NewActivation OR orderType=AddLOS)\n| stats count by marketCity marketState\n| sort - count",
+            "app": utils.getCurrentApp(),
+            "auto_cancel": 90,
+            "status_buckets": 0,
+            "preview": true,
+            "timeFormat": "%s.%Q",
+            "wait": 0
+        });
+
+
+        // END OF AUTO-COMPILED JAVASCRIPT
+
+        // Mod #3, Add code to process the search, create a Flare-like JSON object and send it to D3
+
+        var datasource = splunkjs.mvc.Components.get("search1").data('preview', {
+            output_mode: 'json_rows',
+            count: 0 // get all results
+        });
+
+        var onDataChanged = function(results) {
+            if (!datasource.hasData()) {
+                return;
+            }
+            // Format Splunk data for Sankey
+            var collection = results.collection().toJSON();
+            var bubblechart = { 'name': 'Destinations', 'children': [ ] };
+            for (var i=0; i < collection.length; i++) {
+                // Search for phoneType in existing children
+                var destStateIdx = -1;
+                $.each(bubblechart.children, function(idx, el) {
+                    if (el.name == collection[i]['marketState']) {
+                        destStateIdx = idx;
+                    }
+                });
+                if (destStateIdx == -1) {
+                    bubblechart.children.push({ 'name': collection[i]['marketState'], children: [ ] });
+                    destStateIdx = bubblechart.children.length - 1;
+                }
+
+                bubblechart.children[destStateIdx].children.push({ 'name': collection[i]['marketCity'], 'size': collection[i]['count'] });
+
+            }
+            dovis(bubblechart);
+        };
+        datasource.on('data', onDataChanged);
+
+
+    }
+);
+</script>
+</body>
+</html>
+

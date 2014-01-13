@@ -1,0 +1,243 @@
+<view template="dashboard.html" objectMode="SimpleDashboard">
+  <label>Sales by Rate Plan &amp; Phone</label>
+  <module name="AccountBar" layoutPanel="appHeader"/>
+  <module name="AppBar" layoutPanel="navigationHeader"/>
+  <module name="Message" layoutPanel="messaging">
+    <param name="filter">*</param>
+    <param name="clearOnJobDispatch">False</param>
+    <param name="maxSize">1</param>
+  </module>
+  <module name="DashboardTitleBar" layoutPanel="viewHeader"/>
+  <module name="HiddenSearch" layoutPanel="panel_row1_col1" autoRun="true">
+    <param name="search">index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ | bin _time span=1m | stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType</param>
+    <module name="TimeRangePicker" layoutPanel="panel_row1_col1_grp1" autoRun="True">
+      <param name="selected">Last 60 Minutes</param>
+      <param name="searchWhenChanged">True</param>
+      <module name="StaticSelect" layoutPanel="panel_row1_col1_grp2">
+        <param name="label">Network Provider</param>
+        <param name="settingToCreate">network_provider</param>
+        <param name="searchWhenChanged">True</param>
+        <param name="selected">ALL</param>
+        <param name="staticFieldsToDisplay">
+          <list>
+            <param name="label">ALL</param>
+            <param name="value">*</param>
+          </list>
+          <list>
+            <param name="label">Splunktel</param>
+            <param name="value">Splunktel</param>
+          </list>
+          <list>
+            <param name="label">Clearwire</param>
+            <param name="value">Clearwire</param>
+          </list>
+          <list>
+            <param name="label">Sprint</param>
+            <param name="value">Sprint</param>
+          </list>
+        </param>
+        <module name="ConvertToIntention">
+          <param name="settingToConvert">network_provider</param>
+          <param name="intention">
+            <param name="name">stringreplace</param>
+            <param name="arg">
+              <param name="network_provider">
+                <param name="fillOnEmpty">False</param>
+                <param name="prefix">networkProviderName=</param>
+                <param name="value">$target$</param>
+              </param>
+            </param>
+          </param>
+          <module name="StaticSelect" layoutPanel="panel_row1_col1_grp3">
+            <param name="label">Plan Type</param>
+            <param name="settingToCreate">plan_type</param>
+            <param name="searchWhenChanged">True</param>
+            <param name="selected">ALL</param>
+            <param name="staticFieldsToDisplay">
+              <list>
+                <param name="label">ALL</param>
+                <param name="value">*</param>
+              </list>
+              <list>
+                <param name="label">PostPaid</param>
+                <param name="value">PostPaid</param>
+              </list>
+              <list>
+                <param name="label">PrePaid</param>
+                <param name="value">PrePaid</param>
+              </list>
+            </param>
+            <module name="ConvertToIntention">
+              <param name="settingToConvert">plan_type</param>
+              <param name="intention">
+                <param name="name">stringreplace</param>
+                <param name="arg">
+                  <param name="plan_type">
+                    <param name="fillOnEmpty">False</param>
+                    <param name="prefix">planType=</param>
+                    <param name="value">"$target$"</param>
+                  </param>
+                </param>
+              </param>
+              <module name="SubmitButton" layoutPanel="panel_row1_col1_grp4">
+                <param name="allowSoftSubmit">True</param>
+                <param name="label">Refresh</param>
+                <module name="HiddenPostProcess" layoutPanel="panel_row2_col1_grp1">
+                  <param name="search">stats sum(count) as count | rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</param>
+                  <module name="SingleValue">
+                    <param name="field">count</param>
+                    <param name="afterLabel"> activations</param>
+                    <param name="classField">range</param>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row2_col1_grp2">
+                  <param name="search">stats avg(planPrice) as ARPU | eval ARPU=round(ARPU,2) | rangemap field=ARPU low=0-49 elevated=50-59 high=60-69 severe=70-100 default=low</param>
+                  <module name="SingleValue">
+                    <param name="field">ARPU</param>
+                    <param name="beforeLabel">Revenue per Phone $</param>
+                    <param name="classField">range</param>
+                    <param name="format">decimal</param>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row2_col1_grp3">
+                  <param name="search">search phoneType=iPhone | stats sum(count) as count | rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</param>
+                  <module name="SingleValue">
+                    <param name="field">count</param>
+                    <param name="afterLabel"> iPhone activations</param>
+                    <param name="classField">range</param>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row2_col1_grp4">
+                  <param name="search">search phoneType=Android | stats sum(count) as count  | rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</param>
+                  <module name="SingleValue">
+                    <param name="field">count</param>
+                    <param name="afterLabel"> Android activations</param>
+                    <param name="classField">range</param>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row3_col1" group="Rate Plan Distribution">
+                  <param name="search">chart sum(count) by planDescription</param>
+                  <module name="ViewstateAdapter">
+                    <module name="HiddenFieldPicker">
+                      <param name="strictMode">True</param>
+                      <module name="JobProgressIndicator">
+                        <module name="EnablePreview">
+                          <param name="enable">True</param>
+                          <param name="display">False</param>
+                          <module name="HiddenChartFormatter">
+                            <param name="chart">pie</param>
+                            <param name="legend.placement">none</param>
+                            <param name="primaryAxisTitle.text">Plan</param>
+                            <param name="secondaryAxisTitle.text">Sales</param>
+                            <module name="JSChart">
+                              <param name="width">100%</param>
+                              <param name="height">300px</param>
+                              <module name="ConvertToDrilldownSearch">
+                                <module name="ViewRedirector">
+                                  <param name="viewTarget">flashtimeline</param>
+                                </module>
+                              </module>
+                            </module>
+                            <module name="ViewRedirectorLink">
+                              <param name="viewTarget">flashtimeline</param>
+                            </module>
+                          </module>
+                        </module>
+                      </module>
+                    </module>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row3_col2" group="Rate Plan Sales">
+                  <param name="search">stats sum(count) as Sales, sparkline(sum(count)) as Sparkline by planDescription | sort Sales desc</param>
+                  <module name="ViewstateAdapter">
+                    <module name="HiddenFieldPicker">
+                      <param name="strictMode">True</param>
+                      <module name="JobProgressIndicator">
+                        <module name="EnablePreview">
+                          <param name="enable">True</param>
+                          <param name="display">False</param>
+                          <module name="Paginator">
+                            <param name="entityName">results</param>
+                            <module name="SimpleResultsTable">
+                              <module name="ConvertToDrilldownSearch">
+                                <module name="ViewRedirector">
+                                  <param name="viewTarget">flashtimeline</param>
+                                </module>
+                              </module>
+                            </module>
+                          </module>
+                          <module name="ViewRedirectorLink">
+                            <param name="viewTarget">flashtimeline</param>
+                          </module>
+                        </module>
+                      </module>
+                    </module>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row4_col1" group="Top 5 Phones">
+                  <param name="search">stats sum(count) as Sales by phoneName | sort limit=5 Sales desc</param>
+                  <module name="ViewstateAdapter">
+                    <module name="HiddenFieldPicker">
+                      <param name="strictMode">True</param>
+                      <module name="JobProgressIndicator">
+                        <module name="EnablePreview">
+                          <param name="enable">True</param>
+                          <param name="display">False</param>
+                          <module name="HiddenChartFormatter">
+                            <param name="chart">column</param>
+                            <param name="legend.placement">none</param>
+                            <param name="primaryAxisTitle.text">Plan</param>
+                            <param name="secondaryAxisTitle.text">Sales</param>
+                            <module name="JSChart">
+                              <param name="width">100%</param>
+                              <param name="height">300px</param>
+                              <module name="ConvertToDrilldownSearch">
+                                <module name="ViewRedirector">
+                                  <param name="viewTarget">flashtimeline</param>
+                                </module>
+                              </module>
+                            </module>
+                          </module>
+                          <module name="ViewRedirectorLink">
+                            <param name="viewTarget">flashtimeline</param>
+                          </module>
+                        </module>
+                      </module>
+                    </module>
+                  </module>
+                </module>
+                <module name="HiddenPostProcess" layoutPanel="panel_row4_col2" group="Phone Sales">
+                  <param name="search">stats sum(count) as Sales, sparkline(sum(count)) as Sparkline by phoneName | sort Sales desc</param>
+                  <module name="ViewstateAdapter">
+                    <module name="HiddenFieldPicker">
+                      <param name="strictMode">True</param>
+                      <module name="JobProgressIndicator">
+                        <module name="EnablePreview">
+                          <param name="enable">True</param>
+                          <param name="display">False</param>
+                          <module name="Paginator">
+                            <param name="entityName">results</param>
+                            <module name="SimpleResultsTable">
+                              <module name="ConvertToDrilldownSearch">
+                                <module name="ViewRedirector">
+                                  <param name="viewTarget">flashtimeline</param>
+                                </module>
+                              </module>
+                            </module>
+                          </module>
+                          <module name="ViewRedirectorLink">
+                            <param name="viewTarget">flashtimeline</param>
+                          </module>
+                        </module>
+                      </module>
+                    </module>
+                  </module>
+                </module>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</view>

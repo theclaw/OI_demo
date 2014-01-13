@@ -1,0 +1,821 @@
+{
+    "objects": [
+        {
+            "constraints": [
+                {
+                    "search": "index=oidemo sourcetype=business_event"
+                }
+            ], 
+            "parentName": "BaseEvent", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "Account Number", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "accountNumber", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Account Type", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "accountType", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Market City", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "marketCity", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Market State", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "marketState", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Market Zip", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "marketZip", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Phone Number", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "mdn", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "User Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "userName", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Auto Bill Payment", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "autoBillPayment", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Billing Cycle", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "billingCycle", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Event", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "Event", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Network Provider Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "networkProviderName", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Order Number", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "orderNumber", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Order Type", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "orderType", 
+                    "comment": "", 
+                    "hidden": false
+                }
+            ], 
+            "objectName": "Orders", 
+            "displayName": "Orders", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "(orderType=NewActivation OR orderType=AddLOS) networkProviderName=* planType=\"*\""
+                }
+            ], 
+            "parentName": "Orders", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "Phone Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "phoneName", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Phone Type", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "phoneType", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Code", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planCode", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Description", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planDescription", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planName", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Price", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "planPrice", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "PlanType", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planType", 
+                    "comment": "", 
+                    "hidden": false
+                }
+            ], 
+            "objectName": "Sales", 
+            "displayName": "Sales", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "orderType=NewActivation"
+                }
+            ], 
+            "parentName": "Sales", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "New_Activation", 
+            "displayName": "New Activation", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "orderType=AddLOS"
+                }
+            ], 
+            "parentName": "Sales", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Add_Line", 
+            "displayName": "Add Line", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "(orderType=DisconnectLOS OR orderType=DisconnectAccount) networkProviderName=* planType=\"*\""
+                }
+            ], 
+            "parentName": "Orders", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Cancellations", 
+            "displayName": "Cancellations", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "orderType=\"DisconnectLOS\""
+                }
+            ], 
+            "parentName": "Cancellations", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Cancel_Line", 
+            "displayName": "Cancel Line", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "orderType=\"DisconnectAccount\""
+                }
+            ], 
+            "parentName": "Cancellations", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Cancel_Account", 
+            "displayName": "Cancel Account", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "orderType=\"RatePlanFeatureChange\""
+                }
+            ], 
+            "parentName": "Orders", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "Plan Code", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planCode", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Description", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planDescription", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planName", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Plan Price", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "planPrice", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "PlanType", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "planType", 
+                    "comment": "", 
+                    "hidden": false
+                }
+            ], 
+            "objectName": "Rate_Plan_Change", 
+            "displayName": "Rate Plan Change", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "orderType=\"MDNChange\""
+                }
+            ], 
+            "parentName": "Orders", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Change_Phone_Number", 
+            "displayName": "Change Phone Number", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "index=oidemo (sourcetype=radius OR sourcetype=access_custom)"
+                }
+            ], 
+            "parentName": "BaseEvent", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "Artist Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "artist_name", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Bytes", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "bytes", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Client IP", 
+                    "multivalue": false, 
+                    "type": "ipv4", 
+                    "required": false, 
+                    "fieldName": "clientip", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Device IP", 
+                    "multivalue": false, 
+                    "type": "ipv4", 
+                    "required": false, 
+                    "fieldName": "device_ip", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Phone Number", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "mdn", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Method", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "method", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Port", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "port", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Radius Host", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "radius_host", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Status", 
+                    "multivalue": false, 
+                    "type": "number", 
+                    "required": false, 
+                    "fieldName": "status", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Track Name", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "track_name", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "User", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "user", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Useragent", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "useragent", 
+                    "comment": "", 
+                    "hidden": false
+                }, 
+                {
+                    "displayName": "Search Terms", 
+                    "multivalue": false, 
+                    "type": "string", 
+                    "required": false, 
+                    "fieldName": "search_terms", 
+                    "comment": "", 
+                    "hidden": false
+                }
+            ], 
+            "objectName": "Music_Service", 
+            "displayName": "Music Service", 
+            "calculations": [
+                {
+                    "calculationID": "y134ocm4rtgr2j4i", 
+                    "comment": "", 
+                    "expression": "mvfilter(match(eventtype, \"ua\\-mobile\\-.*\")) ", 
+                    "outputFields": [
+                        {
+                            "displayName": "Eventtype", 
+                            "multivalue": false, 
+                            "type": "string", 
+                            "required": false, 
+                            "fieldName": "eventtype", 
+                            "comment": "", 
+                            "hidden": false
+                        }
+                    ], 
+                    "calculationType": "Eval"
+                }, 
+                {
+                    "calculationID": "2u5oxhhut2t65hfr", 
+                    "comment": "", 
+                    "expression": "substr(eventtype,11)", 
+                    "outputFields": [
+                        {
+                            "displayName": "Device Name", 
+                            "multivalue": false, 
+                            "type": "string", 
+                            "required": false, 
+                            "fieldName": "device_name", 
+                            "comment": "", 
+                            "hidden": false
+                        }
+                    ], 
+                    "calculationType": "Eval"
+                }, 
+                {
+                    "calculationID": "bhi2m4prok0ozuxr", 
+                    "comment": "", 
+                    "expression": "(bytes/1048576)*1000", 
+                    "outputFields": [
+                        {
+                            "displayName": "Data Volume", 
+                            "multivalue": false, 
+                            "type": "number", 
+                            "required": false, 
+                            "fieldName": "data_volume", 
+                            "comment": "", 
+                            "hidden": false
+                        }
+                    ], 
+                    "calculationType": "Eval"
+                }
+            ]
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "bc_uri=/sync/addtolibrary*"
+                }
+            ], 
+            "parentName": "Music_Service", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "User", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": true, 
+                    "required": false, 
+                    "fieldName": "user", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Port", 
+                    "type": "number", 
+                    "owner": "Music_Service", 
+                    "hidden": true, 
+                    "required": false, 
+                    "fieldName": "port", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Search Terms", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": true, 
+                    "required": false, 
+                    "fieldName": "search_terms", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Radius Host", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": true, 
+                    "required": false, 
+                    "fieldName": "radius_host", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Device IP", 
+                    "type": "ipv4", 
+                    "owner": "Music_Service", 
+                    "hidden": true, 
+                    "required": false, 
+                    "fieldName": "device_ip", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Client IP", 
+                    "type": "ipv4", 
+                    "owner": "Music_Service", 
+                    "hidden": true, 
+                    "required": false, 
+                    "fieldName": "clientip", 
+                    "comment": "", 
+                    "multivalue": false
+                }
+            ], 
+            "objectName": "Downloads", 
+            "displayName": "Downloads", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "status=503"
+                }
+            ], 
+            "parentName": "Downloads", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "User", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "user", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Port", 
+                    "type": "number", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "port", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Search Terms", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "search_terms", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Radius Host", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "radius_host", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Device IP", 
+                    "type": "ipv4", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "device_ip", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Client IP", 
+                    "type": "ipv4", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "clientip", 
+                    "comment": "", 
+                    "multivalue": false
+                }
+            ], 
+            "objectName": "Failed_Downloads", 
+            "displayName": "Failed Downloads", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "bc_uri=\"/browse/search/*\""
+                }
+            ], 
+            "parentName": "Music_Service", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Searches", 
+            "displayName": "Searches", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "start"
+                }
+            ], 
+            "parentName": "Music_Service", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Logins", 
+            "displayName": "Logins", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "bc_uri=\"/auth*\""
+                }
+            ], 
+            "parentName": "Music_Service", 
+            "comment": "", 
+            "fields": [], 
+            "objectName": "Activations", 
+            "displayName": "Activations", 
+            "calculations": []
+        }, 
+        {
+            "constraints": [
+                {
+                    "search": "status=200"
+                }
+            ], 
+            "parentName": "Downloads", 
+            "comment": "", 
+            "fields": [
+                {
+                    "displayName": "User", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "user", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Port", 
+                    "type": "number", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "port", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Search Terms", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "search_terms", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Radius Host", 
+                    "type": "string", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "radius_host", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Device IP", 
+                    "type": "ipv4", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "device_ip", 
+                    "comment": "", 
+                    "multivalue": false
+                }, 
+                {
+                    "displayName": "Client IP", 
+                    "type": "ipv4", 
+                    "owner": "Music_Service", 
+                    "hidden": false, 
+                    "required": false, 
+                    "fieldName": "clientip", 
+                    "comment": "", 
+                    "multivalue": false
+                }
+            ], 
+            "objectName": "Successful_Downloads", 
+            "displayName": "Successful Downloads", 
+            "calculations": []
+        }
+    ], 
+    "description": "", 
+    "objectNameList": [
+        "Orders", 
+        "Sales", 
+        "New_Activation", 
+        "Add_Line", 
+        "Cancellations", 
+        "Cancel_Line", 
+        "Cancel_Account", 
+        "Rate_Plan_Change", 
+        "Change_Phone_Number", 
+        "Music_Service", 
+        "Downloads", 
+        "Failed_Downloads", 
+        "Searches", 
+        "Logins", 
+        "Activations", 
+        "Successful_Downloads"
+    ], 
+    "modelName": "OIDemo", 
+    "displayName": "Operational Intelligence", 
+    "objectSummary": {
+        "Transaction-Based": 0, 
+        "Interfaces": 0, 
+        "Interface Implementations": 0, 
+        "Event-Based": 16, 
+        "Search-Based": 0
+    }
+}

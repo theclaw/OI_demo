@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?><dashboard>
+  <label>Download Dashboard</label>
+  <row>
+    <chart>
+      <searchString>index=oidemo sourcetype=access_custom | eval eventtype=mvfilter(match(eventtype, "ua\-mobile\-.*")) | eval platform=substr(eventtype,11) | top platform</searchString>
+      <title>Devices Downloading Songs</title>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.layout.splitSeries">false</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.secondaryAxis.maximumNumber">""</option>
+      <option name="charting.secondaryAxis.minimumNumber">""</option>
+      <option name="charting.secondaryAxis.scale">""</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option> 
+    </chart>
+    <chart>
+      <searchString>index=oidemo sourcetype=access_custom status=503 | eval eventtype=mvfilter(match(eventtype, "ua\-mobile\-.*")) | eval platform=substr(eventtype,11) | chart count by platform</searchString>
+      <title>Devices Unable to Download</title>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.text">Platform</option>
+      <option name="charting.axisTitleY.text">Count</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.layout.splitSeries">false</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.primaryAxisTitle.text"/>
+      <option name="charting.secondaryAxis.maximumNumber">""</option>
+      <option name="charting.secondaryAxis.minimumNumber">""</option>
+      <option name="charting.secondaryAxis.scale">""</option>
+      <option name="charting.secondaryAxisTitle.text"/>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option> 
+    </chart>
+    <chart>
+      <title>Real-Time Data Volume</title>
+      <searchString>index=oidemo sourcetype=access_custom 
+| eval datavolume=(bytes/1048576)*1000 
+| stats sum(datavolume)</searchString>
+      <earliestTime>rt-30s</earliestTime>
+      <latestTime>rt</latestTime>
+      <option name="charting.chart">radialGauge</option>
+      <option name="count">10</option>
+      <option name="displayRowNumbers">true</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.rangeValues">["0","75","150","225"]</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">minimal</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.gaugeColors">[0x84E900,0xFFE800,0xBF3030]</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option> 
+    </chart>
+  </row>
+  <row>
+    <chart>
+      <title>Download Attempts</title>
+      <searchString>index=oidemo sourcetype="access_custom" bc_uri="/sync/addtolibrary/*" 
+| timechart count</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.text">Time</option>
+      <option name="charting.axisTitleY.text">Count</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.secondaryAxis.maximumNumber">""</option>
+      <option name="charting.secondaryAxis.minimumNumber">""</option>
+      <option name="charting.secondaryAxis.scale">""</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option> 
+    </chart>
+    <chart>
+      <title>Download Volume</title>
+      <searchString>index=oidemo sourcetype=access_custom 
+| eval datavolume=bytes/1048576 
+| timechart sum(datavolume)</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="charting.axisTitleX.text">Time</option>
+      <option name="charting.axisTitleY.text">Data Volume (MBs)</option>
+      <option name="charting.chart">line</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="charting.secondaryAxis.maximumNumber">""</option>
+      <option name="charting.secondaryAxis.minimumNumber">""</option>
+      <option name="charting.secondaryAxis.scale">""</option>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option> 
+    </chart>
+  </row>
+</dashboard>

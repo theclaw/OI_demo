@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title>Splunk Developer Platform Demo</title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width" />
+
+		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css' />
+        <link rel="stylesheet" href="../css/bootstrap.min.css" />
+        <link rel="stylesheet" href="../css/main.min.css" />
+        <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
+
+    <body class="marketing-page">
+		<div id="wrapper">
+			<div id="inner-wrapper" class="clearfix">
+				<header>
+					<a href="../" class="home-link" title="Back to splash page"><img src="../img/splunktel-header-img.png" alt="Splunktel" class="header-logo" /></a>
+					<nav id="top-nav">
+						<a href="#">Channels</a>
+						<a href="#">About</a>
+						<a href="#">Help</a>
+						<a href="#">Logout</a>
+						<a href="#" class="search" title="Search"><img src="../img/magnifying-glass-icon.png" alt="Search" /></a>
+					</nav>
+				</header>
+
+				<div class="left-col">
+					<nav id="left-nav">
+						<a href="../" class="home-link">Home</a>
+						<a href="#" class="current">Marketing</a>
+					</nav>
+				</div>
+
+
+				<div class="content marketing-content">
+
+					<nav class="sub-nav clearfix">
+						<a href="#">Introduction</a>
+						<a href="#" class="has-dropdown current">Trends</a>
+						<a href="#" class="has-dropdown">Sales</a>
+						<a href="#">Statistics</a>
+						<a href="#">Pipeline</a>
+						<a href="#">Cases</a>
+						<a href="#">Targets</a>
+					</nav>
+
+					<div class="action-bar clearfix">
+						<div class="breadcrumbs"><a href="#"><strong>Marketing</strong></a> &gt; <a href="#">Trends</a> &gt; <a href="#">Dashboard</a></div>
+
+						<div class="action-buttons">
+							<button type="button" class="btn" disabled onclick="javascript:return false;">PRINT</button>
+							<button type="button" class="btn" disabled onclick="javascript:return false;">EDIT</button>
+						</div>
+					</div>
+
+					<div id="top-artist-searches" class="splunk-module">
+						<h1>TOP ARTIST SEARCHES (PAST 7 DAYS)</h1>
+						<div class="refreshed-at">XX Minutes Ago</div>
+
+						<div class="chart"><span class="loading"></span></div>
+					</div>
+
+					<div id="top-artist-downloads" class="splunk-module">
+						<h1>TOP ARTIST DOWNLOADS (PAST 7 DAYS)</h1>
+						<div class="refreshed-at">XX Minutes Ago</div>
+
+						<div class="chart"><span class="loading"></span></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
+        <script src="../js/plugins.js"></script>
+        <script src="../js/vendor/splunk-v1.1/splunk.js"></script>
+        <script src="../SplunkDemo.js"></script>
+        <script src="marketing.js"></script>
+    </body>
+</html>

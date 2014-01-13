@@ -1,0 +1,180 @@
+<form script="autodiscover.js">
+  <label>Sales by Rate Plan &amp; Phone</label>
+  <description/>
+  <fieldset autoRun="true" submitButton="false">
+    <input type="dropdown" token="network_provider">
+      <label>Network Provider</label>
+      <choice value="*">ALL</choice>
+      <choice value="Splunktel">Splunktel</choice>
+      <choice value="Clearwire">Clearwire</choice>
+      <choice value="Sprint">Sprint</choice>
+      <default>*</default>
+    </input>
+    <input type="dropdown" token="plan_type">
+      <label>Plan Type</label>
+      <choice value="*">ALL</choice>
+      <choice value="PostPaid">PostPaid</choice>
+      <choice value="PrePaid">PrePaid</choice>
+      <default>*</default>
+    </input>
+    <input type="time" searchWhenChanged="true">
+      <default>
+        <earliestTime>-60m@m</earliestTime>
+        <latestTime>now</latestTime>
+      </default>
+    </input>
+  </fieldset>
+  <row grouping="4">
+    <single>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| stats sum(count) as count 
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="afterLabel">activations</option>
+      <option name="classField">range</option>
+      <option name="field">count</option>
+      <option name="linkView">search</option>
+    </single>
+    <single>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| stats avg(planPrice) as ARPU 
+| eval ARPU=round(ARPU,2) 
+| rangemap field=ARPU low=0-49 elevated=50-59 high=60-69 severe=70-100 default=low</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="beforeLabel">Revenue per Phone $</option>
+      <option name="classField">range</option>
+      <option name="field">ARPU</option>
+      <option name="format">decimal</option>
+      <option name="linkView">search</option>
+    </single>
+    <single>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| search phoneType=iPhone 
+| stats sum(count) as count 
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="afterLabel">iPhone activations</option>
+      <option name="classField">range</option>
+      <option name="field">count</option>
+      <option name="linkView">search</option>
+    </single>
+    <single>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| search phoneType=Android 
+| stats sum(count) as count  
+| rangemap field=count low=3000-15000 elevated=2000-2099 severe=0-1999 default=low</searchString>
+      <earliestTime>-60m@m</earliestTime>
+      <latestTime>now</latestTime>
+      <option name="afterLabel">Android activations</option>
+      <option name="classField">range</option>
+      <option name="field">count</option>
+      <option name="linkView">search</option>
+    </single>
+  </row>
+  <row>
+    <chart>
+      <title>Rate Plan Distribution</title>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| chart sum(count) by planDescription</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">pie</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">right</option>
+      <option name="height">320px</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+    <table>
+      <title>Rate Plan Sales</title>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$  | bin _time span=1m  | stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType | stats sum(count) as Sales, sparkline(sum(count)) as Sparkline by planDescription  | sort Sales desc</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="wrap">true</option>
+      <option name="displayRowNumbers">false</option>
+      <option name="dataOverlayMode">none</option>
+      <option name="drilldown">none</option>
+      <option name="count">10</option>
+      <format type="sparkline" field="Sparkline">
+        <option name="lineColor">#5379af</option>
+        <option name="fillColor">#CCDDFF</option>
+        <option name="lineWidth">1</option>
+        <option name="height">20px</option>
+      </format>
+    </table>
+  </row>
+  <row>
+    <chart>
+      <title>Top 5 phones</title>
+      <searchString>index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ $plan_type$ 
+| bin _time span=1m 
+| stats count by _time, marketCity, orderType, networkProviderName, phoneName, phoneType, planDescription, planPrice, planType
+| stats sum(count) as Sales by phoneName | sort limit=5 Sales desc</searchString>
+      <earliestTime>$earliest$</earliestTime>
+      <latestTime>$latest$</latestTime>
+      <option name="charting.axisTitleX.visibility">visible</option>
+      <option name="charting.axisTitleY.visibility">visible</option>
+      <option name="charting.axisX.scale">linear</option>
+      <option name="charting.axisY.scale">linear</option>
+      <option name="charting.chart">column</option>
+      <option name="charting.chart.nullValueMode">gaps</option>
+      <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+      <option name="charting.chart.stackMode">default</option>
+      <option name="charting.chart.style">shiny</option>
+      <option name="charting.drilldown">all</option>
+      <option name="charting.layout.splitSeries">0</option>
+      <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+      <option name="charting.legend.placement">none</option>
+      <option name="height">370px</option>
+      <option name="charting.seriesColors">[0x5379af, 0x9ac23c, 0xf7902b, 0x956d95, 0x6ab7c7, 0xd85d3c, 0xfac51c, 0xdd86af]</option>
+      <option name="charting.legend.masterLegend">null</option>
+    </chart>
+        <html>
+            <h2>Sales by State</h2>
+            <div id="bubbleSearch"
+                 class="splunk-manager"
+                 data-require="splunkjs/mvc/searchmanager"
+                 data-options='{
+                    "search": "index=\"oidemo\" sourcetype=\"business_event\" (orderType=NewActivation OR orderType=AddLOS) | stats count by marketState marketCity | sort -count limit=100",
+                    "preview": "true",
+                    "earliest_time": "$earliest$",
+                    "latest_time": "$latest$"
+                 }'>
+            </div>
+            <div id="bubbleChart"
+                 class="splunk-view"
+                 data-require="/static/app/oidemo/bubblechart/bubblechartview.js"
+                 data-options='{
+                    "managerid": "bubbleSearch",
+                    "labelField": "marketCity",
+                    "categoryField": "marketState",
+                    "magnitudeField": "count",
+	            "height": "450"
+                 }'>
+            </div>
+        </html>
+    </row>
+</form>

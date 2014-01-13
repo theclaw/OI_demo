@@ -1,0 +1,16 @@
+// Declare some global options
+var SplunkDemo = {
+	serviceOptions: {
+		username: "admin",
+		password: "changed",
+		version: "6.0",
+		port: "8964",
+		scheme: "https",
+		host: "localhost"
+	},
+	appName: 'oidemo'
+};
+
+// Init service
+var http = new splunkjs.ProxyHttp( "/en-US/splunkd/__raw" );
+var service = new splunkjs.Service( http, SplunkDemo.serviceOptions );

@@ -1,0 +1,1 @@
+"%SPLUNK_HOME%\bin\python" "%SPLUNK_HOME%\etc\apps\oidemo\bin\noise_rad_apache.py"

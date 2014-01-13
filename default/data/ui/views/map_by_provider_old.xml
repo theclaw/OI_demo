@@ -1,0 +1,63 @@
+<view template="dashboard.html" stylesheet="mapnav.css">
+  <label>Map by Provider</label>
+  <module name="AccountBar" layoutPanel="appHeader"/>
+  <module name="AppBar" layoutPanel="navigationHeader"/>
+  <module name="Message" layoutPanel="messaging">
+    <param name="filter">*</param>
+    <param name="clearOnJobDispatch">False</param>
+    <param name="maxSize">1</param>
+  </module>
+  <module name="ServerSideInclude" layoutPanel="panel_row1_col1">
+    <param name="src">mapnav.html</param>
+    <module name="HiddenSearch" autoRun="true">
+      <param name="search">index="oidemo" sourcetype="business_event" (orderType=NewActivation OR orderType=AddLOS) $network_provider$ | `begeo`</param>
+      <module name="TimeRangePicker" autoRun="True">
+        <param name="selected">Last 60 minutes</param>
+        <param name="searchWhenChanged">True</param>
+        <module name="StaticSelect">
+          <param name="label">Network Provider</param>
+          <param name="settingToCreate">network_provider</param>
+          <param name="searchWhenChanged">True</param>
+          <param name="selected">Splunktel</param>
+          <param name="staticFieldsToDisplay">
+            <list>
+              <param name="label">Splunktel</param>
+              <param name="value">Splunktel</param>
+            </list>
+            <list>
+              <param name="label">Clearwire</param>
+              <param name="value">Clearwire</param>
+            </list>
+            <list>
+              <param name="label">Sprint</param>
+              <param name="value">Sprint</param>
+            </list>
+          </param>
+          <module name="ConvertToIntention">
+            <param name="settingToConvert">network_provider</param>
+            <param name="intention">
+              <param name="name">stringreplace</param>
+              <param name="arg">
+                <param name="network_provider">
+                  <param name="fillOnEmpty">False</param>
+                  <param name="prefix">networkProviderName=</param>
+                  <param name="value">$target$</param>
+                </param>
+              </param>
+            </param>
+            <module name="SubmitButton">
+              <param name="allowSoftSubmit">True</param>
+              <param name="label">Refresh</param>
+              <module name="GoogleMaps">
+                <param name="height">500px</param>
+                <param name="mapType">terrain</param>
+                <param name="center">39.810646,-98.556976</param>
+                <param name="zoomLevel">4</param>
+              </module>
+            </module>
+          </module>
+        </module>
+      </module>
+    </module>
+  </module>
+</view>
